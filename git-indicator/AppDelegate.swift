@@ -11,17 +11,24 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var menu: NSMenu!
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-
+    @IBOutlet weak var quit: NSMenuItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        statusItem.title = "Git Indicator"
+        statusItem.menu = menu
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
+    @IBAction func quit(sender: NSMenuItem) {
+        NSApplication.shared.terminate(self)
+    }
 
 }
 

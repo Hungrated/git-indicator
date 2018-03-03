@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,8 +12,44 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target">
+            <connections>
+                <outlet property="menu" destination="zBc-Uz-yGL" id="J5U-1j-xFw"/>
+                <outlet property="quit" destination="yQg-Bu-fq6" id="8to-3V-I7E"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <viewController id="lde-DD-l6V" userLabel="Popover View Controller"/>
+        <popover id="Fwi-fg-cd2">
+            <connections>
+                <outlet property="contentViewController" destination="lde-DD-l6V" id="giL-fU-pi9"/>
+            </connections>
+        </popover>
+        <customView id="1Fw-iv-29K">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-XQ-hUG">
+                    <rect key="frame" x="-7" y="-9" width="177" height="114"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" ambiguous="YES" id="V7U-55-5LO">
+                        <rect key="frame" x="1" y="1" width="175" height="112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </box>
+            </subviews>
+        </customView>
+        <menu id="zBc-Uz-yGL">
+            <items>
+                <menuItem title="退出" id="yQg-Bu-fq6">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitWithSender:" target="Voe-Tx-rLC" id="h4h-1L-L61"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-46.5" y="141.5"/>
+        </menu>
     </objects>
 </document>
