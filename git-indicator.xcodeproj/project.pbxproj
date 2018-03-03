@@ -10,6 +10,7 @@
 		443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C4886204A9D7D004290A0 /* AppDelegate.swift */; };
 		443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443C4888204A9D7D004290A0 /* Assets.xcassets */; };
 		443C488C204A9D7D004290A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C488A204A9D7D004290A0 /* MainMenu.xib */; };
+		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		443C488B204A9D7D004290A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		443C488D204A9D7D004290A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443C488E204A9D7D004290A0 /* git_indicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = git_indicator.entitlements; sourceTree = "<group>"; };
+		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 			children = (
 				443C4885204A9D7D004290A0 /* git-indicator */,
 				443C4884204A9D7D004290A0 /* Products */,
+				443C4894204AA245004290A0 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */,
+				443C4895204AA245004290A0 /* .gitignore in Resources */,
 				443C488C204A9D7D004290A0 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
