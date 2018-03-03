@@ -12,12 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target">
-            <connections>
-                <outlet property="menu" destination="zBc-Uz-yGL" id="J5U-1j-xFw"/>
-                <outlet property="quit" destination="yQg-Bu-fq6" id="8to-3V-I7E"/>
-            </connections>
-        </customObject>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="rkV-6a-EEP" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
             <connections>
