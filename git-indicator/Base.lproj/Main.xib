@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,28 +21,24 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="rkV-6a-EEP" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
             <connections>
-                <outlet property="menu" destination="zBc-Uz-yGL" id="LXd-k3-aVs"/>
+                <outlet property="menu" destination="zBc-Uz-yGL" id="KnZ-1R-qRQ"/>
             </connections>
         </customObject>
-        <viewController id="lde-DD-l6V" userLabel="Popover View Controller"/>
-        <popover id="Fwi-fg-cd2">
-            <connections>
-                <outlet property="contentViewController" destination="lde-DD-l6V" id="giL-fU-pi9"/>
-            </connections>
-        </popover>
-        <customView id="1Fw-iv-29K">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+        <customView id="1Fw-iv-29K" userLabel="Indicator">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="225"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-XQ-hUG">
-                    <rect key="frame" x="-7" y="-9" width="177" height="114"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Jm-5C-fbd">
+                    <rect key="frame" x="29" y="181" width="33" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <view key="contentView" ambiguous="YES" id="V7U-55-5LO">
-                        <rect key="frame" x="1" y="1" width="175" height="112"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </box>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="hello" id="9rh-Th-JQH">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
+            <point key="canvasLocation" x="216" y="232.5"/>
         </customView>
         <menu id="zBc-Uz-yGL">
             <items>
@@ -55,7 +50,7 @@
                 </menuItem>
             </items>
             <connections>
-                <outlet property="delegate" destination="rkV-6a-EEP" id="qeL-wV-Z36"/>
+                <outlet property="delegate" destination="rkV-6a-EEP" id="tdi-Wd-3EL"/>
             </connections>
             <point key="canvasLocation" x="-46.5" y="141.5"/>
         </menu>

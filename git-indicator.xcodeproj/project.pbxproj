@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44316B4A204ADBAC00381C12 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44316B49204ADBAC00381C12 /* Indicator.swift */; };
 		443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C4886204A9D7D004290A0 /* AppDelegate.swift */; };
 		443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443C4888204A9D7D004290A0 /* Assets.xcassets */; };
-		443C488C204A9D7D004290A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C488A204A9D7D004290A0 /* MainMenu.xib */; };
+		443C488C204A9D7D004290A0 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C488A204A9D7D004290A0 /* Main.xib */; };
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
 		443C489A204ACC2D004290A0 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C4899204ACC2D004290A0 /* MainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44316B49204ADBAC00381C12 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		443C4883204A9D7D004290A0 /* git-indicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "git-indicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443C4886204A9D7D004290A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443C4888204A9D7D004290A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		443C488B204A9D7D004290A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		443C488B204A9D7D004290A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Main.xib; sourceTree = "<group>"; };
 		443C488D204A9D7D004290A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443C488E204A9D7D004290A0 /* git_indicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = git_indicator.entitlements; sourceTree = "<group>"; };
 		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -38,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44316B48204ADB8C00381C12 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				44316B49204ADBAC00381C12 /* Indicator.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
 		443C487A204A9D7D004290A0 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +69,11 @@
 		443C4885204A9D7D004290A0 /* git-indicator */ = {
 			isa = PBXGroup;
 			children = (
+				44316B48204ADB8C00381C12 /* Indicator */,
 				443C489B204ACC40004290A0 /* MainController */,
 				443C4886204A9D7D004290A0 /* AppDelegate.swift */,
 				443C4888204A9D7D004290A0 /* Assets.xcassets */,
-				443C488A204A9D7D004290A0 /* MainMenu.xib */,
+				443C488A204A9D7D004290A0 /* Main.xib */,
 				443C488D204A9D7D004290A0 /* Info.plist */,
 				443C488E204A9D7D004290A0 /* git_indicator.entitlements */,
 			);
@@ -139,7 +150,7 @@
 				443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */,
 				443C4895204AA245004290A0 /* .gitignore in Resources */,
 				443C4898204ABA82004290A0 /* README.md in Resources */,
-				443C488C204A9D7D004290A0 /* MainMenu.xib in Resources */,
+				443C488C204A9D7D004290A0 /* Main.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443C489A204ACC2D004290A0 /* MainController.swift in Sources */,
+				44316B4A204ADBAC00381C12 /* Indicator.swift in Sources */,
 				443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,12 +170,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		443C488A204A9D7D004290A0 /* MainMenu.xib */ = {
+		443C488A204A9D7D004290A0 /* Main.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				443C488B204A9D7D004290A0 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = Main.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
