@@ -20,6 +20,11 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="rkV-6a-EEP" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
+            <connections>
+                <outlet property="menu" destination="zBc-Uz-yGL" id="LXd-k3-aVs"/>
+            </connections>
+        </customObject>
         <viewController id="lde-DD-l6V" userLabel="Popover View Controller"/>
         <popover id="Fwi-fg-cd2">
             <connections>
@@ -45,10 +50,13 @@
                 <menuItem title="退出" id="yQg-Bu-fq6">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitWithSender:" target="Voe-Tx-rLC" id="h4h-1L-L61"/>
+                        <action selector="quitClickedWithSender:" target="rkV-6a-EEP" id="wNT-WH-fqj"/>
                     </connections>
                 </menuItem>
             </items>
+            <connections>
+                <outlet property="delegate" destination="rkV-6a-EEP" id="qeL-wV-Z36"/>
+            </connections>
             <point key="canvasLocation" x="-46.5" y="141.5"/>
         </menu>
     </objects>
