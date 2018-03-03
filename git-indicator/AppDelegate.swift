@@ -18,7 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var quit: NSMenuItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        statusItem.title = "Git Indicator"
+        let icon = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+        icon?.isTemplate = true
+        statusItem.title = "Git"
+        statusItem.image = icon
         statusItem.menu = menu
     }
 
