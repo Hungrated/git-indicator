@@ -24,14 +24,6 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ove-O3-iXn">
-                    <rect key="frame" x="438" y="0.0" width="40" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="QuitIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="23n-TF-KeZ">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-bo-bJC">
                     <rect key="frame" x="372" y="0.0" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -40,8 +32,24 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ove-O3-iXn">
+                    <rect key="frame" x="438" y="0.0" width="40" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="QuitIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="23n-TF-KeZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="quitClicked:" target="Adx-C1-3dU" id="8wk-1Q-HDU"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
+        <customObject id="Adx-C1-3dU" customClass="Indicator" customModule="git_indicator" customModuleProvider="target">
+            <connections>
+                <outlet property="quit" destination="ove-O3-iXn" id="Wx9-gy-RBb"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="PreferenceIcon" width="64" height="64"/>

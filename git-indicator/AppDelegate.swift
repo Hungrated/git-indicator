@@ -10,9 +10,9 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
+    @IBOutlet weak var popover: NSPopover!
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    let popover = NSPopover()
+    
     
     var eventMonitor: EventMonitor?
     

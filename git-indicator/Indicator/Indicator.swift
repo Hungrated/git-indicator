@@ -9,10 +9,14 @@
 import Cocoa
 
 class Indicator: NSViewController {
-
+@IBOutlet weak var quit: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        
     }
     
+    @IBAction func quitClicked(_ sender: AnyObject) {
+        NSApplication.shared.terminate(self)
+    }    
 }
