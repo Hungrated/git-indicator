@@ -9,10 +9,15 @@
 import Cocoa
 
 class Preferences: NSViewController {
-
+    @IBOutlet weak var submit: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+    
+    @IBAction func submitPref(_ sender: Any) {
+        print("submitPref")
     }
     
 }
