@@ -14,9 +14,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let popover = NSPopover()
     let pref = NSPopover()
+    let menu = NSMenu()
+    
+    var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         controllerInit()
+        controllerEventMonitor()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {}
@@ -30,8 +34,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentViewController = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
         pref.contentViewController = Preferences(nibName: NSNib.Name(rawValue: "Preferences"), bundle: nil)
-//        menu.addItem(NSMenuItem(title: "退出", action: #selector(quitClicked(sender:)), keyEquivalent: "q"))
-//        statusItem.menu = menu
+        menu.addItem(NSMenuItem(title: "退出", action: #selector(quitClicked(sender:)), keyEquivalent: "q"))
+        statusItem.menu = menu
+    }
+    
+    func controllerEventMonitor () {
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+            if self.popover.isShown {
+                self.closePopover(sender: event)
+            }
+        }
+        eventMonitor?.start();
     }
     
     @objc func quitClicked(sender: AnyObject?) {
@@ -41,11 +54,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            eventMonitor?.start()
         }
     }
     
     @objc func closePopover(sender: AnyObject?) {
         popover.performClose(sender)
+        eventMonitor?.stop()
     }
     
     @objc func togglePopover(sender: AnyObject?) {

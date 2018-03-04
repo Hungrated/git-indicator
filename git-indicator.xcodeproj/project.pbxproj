@@ -16,6 +16,7 @@
 		443C488C204A9D7D004290A0 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C488A204A9D7D004290A0 /* Main.xib */; };
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
+		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		443C488E204A9D7D004290A0 /* git_indicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = git_indicator.entitlements; sourceTree = "<group>"; };
 		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		443C4897204ABA82004290A0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		449942F1204BCD78005E430E /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +89,10 @@
 				44316B48204ADB8C00381C12 /* Indicator */,
 				443C4886204A9D7D004290A0 /* AppDelegate.swift */,
 				443C4888204A9D7D004290A0 /* Assets.xcassets */,
-				443C488A204A9D7D004290A0 /* Main.xib */,
+				449942F1204BCD78005E430E /* EventMonitor.swift */,
 				443C488D204A9D7D004290A0 /* Info.plist */,
 				443C488E204A9D7D004290A0 /* git_indicator.entitlements */,
+				443C488A204A9D7D004290A0 /* Main.xib */,
 			);
 			path = "git-indicator";
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				44376EA9204B910200017AC6 /* Indicator.swift in Sources */,
 				443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */,
 				44376EB0204BB19C00017AC6 /* Preferences.swift in Sources */,
+				449942F2204BCD78005E430E /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
