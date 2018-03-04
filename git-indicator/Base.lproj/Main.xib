@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,40 +13,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customObject id="rkV-6a-EEP" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
-            <connections>
-                <outlet property="menu" destination="zBc-Uz-yGL" id="KnZ-1R-qRQ"/>
-            </connections>
-        </customObject>
-        <customView id="1Fw-iv-29K" userLabel="Indicator">
-            <rect key="frame" x="0.0" y="0.0" width="330" height="225"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Jm-5C-fbd">
-                    <rect key="frame" x="29" y="181" width="33" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="hello" id="9rh-Th-JQH">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-            </subviews>
-            <point key="canvasLocation" x="216" y="232.5"/>
-        </customView>
-        <menu id="zBc-Uz-yGL">
-            <items>
-                <menuItem title="退出" id="yQg-Bu-fq6">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="quitClickedWithSender:" target="rkV-6a-EEP" id="wNT-WH-fqj"/>
-                    </connections>
-                </menuItem>
-            </items>
-            <connections>
-                <outlet property="delegate" destination="rkV-6a-EEP" id="tdi-Wd-3EL"/>
-            </connections>
-            <point key="canvasLocation" x="-46.5" y="141.5"/>
-        </menu>
+        <customObject id="rkV-6a-EEP" customClass="MainController" customModule="git_indicator" customModuleProvider="target"/>
     </objects>
 </document>
