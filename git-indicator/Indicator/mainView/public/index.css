@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html, body {
+    width: 480px;
+    height: 240px;
+    background: #555555;
+}
+
+.g-graph, .g-info {
+    padding: 18px;
+    text-align: center;
+    width: 100%;
+}
+
+.g-graph {
+    height: 150px;
+}
+
+.g-info {
+    height: 90px;
+    border-bottom: 1px dashed #999999;
+}

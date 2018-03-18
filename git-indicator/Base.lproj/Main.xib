@@ -18,7 +18,7 @@
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <viewController id="i6u-W4-kop" userLabel="Popover View Controller"/>
-        <popover id="wls-S9-nPa">
+        <popover behavior="t" id="wls-S9-nPa">
             <connections>
                 <outlet property="contentViewController" destination="i6u-W4-kop" id="bNt-XK-M1e"/>
             </connections>
