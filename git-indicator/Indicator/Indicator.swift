@@ -17,7 +17,7 @@ class Indicator: NSViewController {
     @IBOutlet weak var quit: NSButton!
     
     var windowController: NSWindowController?
-    var perfWindowController: NSWindowController?
+    var prefWindowController: NSWindowController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +36,18 @@ class Indicator: NSViewController {
         }
     }
     
-//    @IBAction func refreshClicked(_ sender: AnyObject) {
-//        self.mainView.mainFrame.reload()
-//    }
+    @IBAction func refreshClicked(_ sender: AnyObject) {
+    }
     
     @IBAction func preferencesClicked(_ sender: AnyObject) {
         
-        let perfViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
+        let prefViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
         
-        let perfWindow = NSWindow(contentViewController: perfViewController)
+        let prefWindow = NSWindow(contentViewController: prefViewController)
         
-        perfWindowController = NSWindowController(window: perfWindow)
+        prefWindowController = NSWindowController(window: prefWindow)
         
-        perfWindowController?.showWindow(nil)
+        prefWindowController?.showWindow(nil)
     }
     
     @IBAction func quitClicked(_ sender: AnyObject) {
