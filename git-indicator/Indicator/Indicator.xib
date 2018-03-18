@@ -35,7 +35,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="refreshClicked:" target="Adx-C1-3dU" id="xet-7d-mxI"/>
+                        <action selector="reload:" target="43k-QN-5Gd" id="zhH-kW-Sfc"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-8t-cFZ">

@@ -34,10 +34,7 @@ class Indicator: NSViewController {
             self.mainView.mainFrame.load(request)
             
         }
-    }
-    
-    @IBAction func refreshClicked(_ sender: AnyObject) {
-    }
+    }    
     
     @IBAction func preferencesClicked(_ sender: AnyObject) {
         
