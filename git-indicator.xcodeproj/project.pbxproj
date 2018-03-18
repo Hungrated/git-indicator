@@ -17,6 +17,8 @@
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
 		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
+		44B5D4FF205E816F00CA32F0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
+		44B5D502205E825800CA32F0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 44B5D501205E825800CA32F0 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		443C4897204ABA82004290A0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		449942F1204BCD78005E430E /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		44B5D501205E825800CA32F0 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B5D4FF205E816F00CA32F0 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +54,7 @@
 		44316B48204ADB8C00381C12 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
+				44B5D500205E824000CA32F0 /* mainView */,
 				44376EA7204B910200017AC6 /* Indicator.swift */,
 				44376EA8204B910200017AC6 /* Indicator.xib */,
 			);
@@ -71,6 +77,7 @@
 				443C4884204A9D7D004290A0 /* Products */,
 				443C4897204ABA82004290A0 /* README.md */,
 				443C4894204AA245004290A0 /* .gitignore */,
+				44B5D4FD205E816E00CA32F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,22 @@
 				443C488A204A9D7D004290A0 /* Main.xib */,
 			);
 			path = "git-indicator";
+			sourceTree = "<group>";
+		};
+		44B5D4FD205E816E00CA32F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44B5D4FE205E816F00CA32F0 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44B5D500205E824000CA32F0 /* mainView */ = {
+			isa = PBXGroup;
+			children = (
+				44B5D501205E825800CA32F0 /* index.html */,
+			);
+			path = mainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B5D502205E825800CA32F0 /* index.html in Resources */,
 				443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */,
 				443C4895204AA245004290A0 /* .gitignore in Resources */,
 				443C4898204ABA82004290A0 /* README.md in Resources */,

@@ -7,28 +7,47 @@
 //
 
 import Cocoa
+import WebKit
 
 class Indicator: NSViewController {
     
+    @IBOutlet weak var mainView: WebView!
+    @IBOutlet weak var refresh: NSButton!
     @IBOutlet weak var preferences: NSButton!
     @IBOutlet weak var quit: NSButton!
     
+    var windowController: NSWindowController?
+    var perfWindowController: NSWindowController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMainView()
     }
     
-    open var windowController: NSWindowController?
-    var perfWindowController: NSWindowController?
+    func loadMainView() {
+        if let path = Bundle.main.path(forResource: "index", ofType: "html"){
+            
+            let url = NSURL.fileURL(withPath: path)
+            
+            let request = URLRequest(url: url)
+            
+            self.mainView.mainFrame.load(request)
+            
+        }
+    }
+    
+//    @IBAction func refreshClicked(_ sender: AnyObject) {
+//        self.mainView.mainFrame.reload()
+//    }
     
     @IBAction func preferencesClicked(_ sender: AnyObject) {
-        // 创建视图控制器，加载xib文件
+        
         let perfViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
-        // 创建窗口，关联控制器
+        
         let perfWindow = NSWindow(contentViewController: perfViewController)
-        // 初始化窗口控制器
+        
         perfWindowController = NSWindowController(window: perfWindow)
-        // 显示窗口
+        
         perfWindowController?.showWindow(nil)
     }
     
