@@ -17,7 +17,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="275"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="310"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43k-QN-5Gd">
@@ -27,6 +27,15 @@
                         <nil key="identifier"/>
                     </webPreferences>
                 </webView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDh-pC-ejH">
+                    <rect key="frame" x="183" y="285" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Git Indicator" id="NXl-0i-mFk">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-bo-bJC">
                     <rect key="frame" x="3" y="0.0" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -61,7 +70,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="131" y="168.5"/>
+            <point key="canvasLocation" x="131" y="154"/>
         </customView>
         <customObject id="Adx-C1-3dU" customClass="Indicator" customModule="git_indicator" customModuleProvider="target">
             <connections>

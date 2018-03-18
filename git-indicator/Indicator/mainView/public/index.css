@@ -8,7 +8,7 @@
 html, body {
     width: 480px;
     height: 240px;
-    background: #555555;
+    background: #757575;
     color: #CCCCCC;
     font-family: "-apple-system";
     user-select: none;
@@ -22,11 +22,13 @@ html, body {
 }
 
 .g-graph {
-    height: 150px;
+    height: 149px;
+    border-top: 1px dashed #888888;
 }
 
 .g-info {
     height: 90px;
+    background: #555555;
     border-bottom: 1px dashed #999999;
     padding-left: 115px;
     position: relative;
@@ -40,7 +42,7 @@ html, body {
 /* info start */
 .g-info .m-avatar {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 35px;
     width: 60px;
     height: 60px;
@@ -49,6 +51,7 @@ html, body {
 }
 
 .g-info .m-username, .g-info .m-count {
+    margin: 2px 0 3px 0;
     font-size: 15px;
     line-height: 22px;
 }
