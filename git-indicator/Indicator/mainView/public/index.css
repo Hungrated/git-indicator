@@ -1,19 +1,23 @@
+/* base start */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    position: relative;
 }
 
 html, body {
     width: 480px;
     height: 240px;
     background: #555555;
+    color: #CCCCCC;
+    font-family: "-apple-system";
+    user-select: none;
 }
+/* base end */
 
+/* main frame start */
 .g-graph, .g-info {
     padding: 18px;
-    text-align: center;
     width: 100%;
 }
 
@@ -24,4 +28,44 @@ html, body {
 .g-info {
     height: 90px;
     border-bottom: 1px dashed #999999;
+    padding-left: 115px;
+    position: relative;
 }
+/* main frame end */
+
+/* graph start */
+
+/* graph end */
+
+/* info start */
+.g-info .m-avatar {
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #999999;
+}
+
+.g-info .m-username, .g-info .m-count {
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.g-info .m-username {
+
+}
+
+.g-info .m-count {
+
+}
+
+.g-info .m-count .m-color {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 10px -2px 10px;
+    background: green;
+}
+/* info end */
