@@ -1,0 +1,16 @@
+{
+  "name": "git-indicator",
+  "version": "0.0.1",
+  "description": "An indicator for Git commits.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "git",
+    "github",
+    "gitlab"
+  ],
+  "author": "Hungrated",
+  "license": "MIT"
+}

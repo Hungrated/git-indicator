@@ -106,3 +106,4 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+/git-indicator/Indicator/mainView/package-lock.json
