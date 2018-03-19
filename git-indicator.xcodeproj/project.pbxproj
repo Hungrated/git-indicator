@@ -17,10 +17,27 @@
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
 		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
-		44B5D4FF205E816F00CA32F0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
+		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
 		44B5D502205E825800CA32F0 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 44B5D501205E825800CA32F0 /* index.html */; };
 		44F16970205EA53E00F07621 /* public in Resources */ = {isa = PBXBuildFile; fileRef = 44F1696F205EA53E00F07621 /* public */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44AB888E205FDB4C005E06D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD901619C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
+		44AB8890205FDB4C005E06D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
+			remoteInfo = SwiftHTTPTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		44346524204C401E0086EC2D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -36,6 +53,7 @@
 		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		443C4897204ABA82004290A0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		449942F1204BCD78005E430E /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44B5D501205E825800CA32F0 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		44F1696F205EA53E00F07621 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = "git-indicator/Indicator/mainView/public"; sourceTree = "<group>"; };
@@ -46,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44B5D4FF205E816F00CA32F0 /* WebKit.framework in Frameworks */,
+				44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +93,7 @@
 		443C487A204A9D7D004290A0 = {
 			isa = PBXGroup;
 			children = (
+				44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */,
 				44F1696F205EA53E00F07621 /* public */,
 				443C4885204A9D7D004290A0 /* git-indicator */,
 				443C4884204A9D7D004290A0 /* Products */,
@@ -105,6 +124,15 @@
 				443C488A204A9D7D004290A0 /* Main.xib */,
 			);
 			path = "git-indicator";
+			sourceTree = "<group>";
+		};
+		44AB888A205FDB4C005E06D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */,
+				44AB8891205FDB4C005E06D1 /* SwiftHTTPTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		44B5D4FD205E816E00CA32F0 /* Frameworks */ = {
@@ -156,6 +184,11 @@
 					443C4882204A9D7D004290A0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -170,12 +203,35 @@
 			mainGroup = 443C487A204A9D7D004290A0;
 			productRefGroup = 443C4884204A9D7D004290A0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 44AB888A205FDB4C005E06D1 /* Products */;
+					ProjectRef = 44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				443C4882204A9D7D004290A0 /* git-indicator */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTP.framework;
+			remoteRef = 44AB888E205FDB4C005E06D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		44AB8891205FDB4C005E06D1 /* SwiftHTTPTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPTests.xctest;
+			remoteRef = 44AB8890205FDB4C005E06D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		443C4881204A9D7D004290A0 /* Resources */ = {
@@ -331,7 +387,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "git-indicator/git_indicator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "git-indicator/Info.plist";
@@ -346,7 +401,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "git-indicator/git_indicator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "git-indicator/Info.plist";
