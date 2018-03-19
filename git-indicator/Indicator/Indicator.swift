@@ -8,6 +8,7 @@
 
 import Cocoa
 import WebKit
+import SwiftHTTP
 
 class Indicator: NSViewController {
     
@@ -33,6 +34,7 @@ class Indicator: NSViewController {
             
             self.mainView.mainFrame.load(request)
             
+            self.getGithubUserData(username: "Hungrated")
         }
     }    
     
@@ -49,5 +51,21 @@ class Indicator: NSViewController {
     
     @IBAction func quitClicked(_ sender: AnyObject) {
         NSApplication.shared.terminate(self)
+    }
+    
+    func getGithubUserData(username: String) {
+        HTTP.GET("https://github.com/\(username)") { response in
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+                return
+            }
+            print("opt finished: \(response.description)")
+            self.initWebviewData(data: response.description)
+            //print("data is: \(response.data)") access the response of the data with response.data
+        }
+    }
+    
+    func initWebviewData(data: String) {
+        
     }
 }

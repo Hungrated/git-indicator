@@ -1,12 +1,5 @@
-$(function () {
-    $.ajax({
-        method: 'get',
-        dataType: 'jsonp',
-        url: 'https://api.github.com/users/Hungrated',
-        success: 'handleData'
+function init(data) {
+    $(function () {
+        document.write(data.toString().slice(0, 50))
     })
-
-    function handleData(data) {
-        console.log(data)
-    }
-})
+}
