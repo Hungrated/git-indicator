@@ -48,6 +48,12 @@ html, body {
     height: 60px;
     border-radius: 5px;
     box-shadow: 0 0 3px #999999;
+    overflow: hidden;
+}
+
+.g-info .m-avatar img {
+    margin: -30px 0 0 -50%;
+    width: 105%;
 }
 
 .g-info .m-username, .g-info .m-count {
