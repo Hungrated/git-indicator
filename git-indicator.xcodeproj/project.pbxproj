@@ -16,6 +16,7 @@
 		443C488C204A9D7D004290A0 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C488A204A9D7D004290A0 /* Main.xib */; };
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
+		4474A23620615ED700E17225 /* SwiftHTTP.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
 		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
 		44AB8896205FDCBF005E06D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
@@ -39,6 +40,20 @@
 			remoteInfo = SwiftHTTPTests;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4474A23320615EB100E17225 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4474A23620615ED700E17225 /* SwiftHTTP.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		44346524204C401E0086EC2D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -163,6 +178,7 @@
 				443C487F204A9D7D004290A0 /* Sources */,
 				443C4880204A9D7D004290A0 /* Frameworks */,
 				443C4881204A9D7D004290A0 /* Resources */,
+				4474A23320615EB100E17225 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
