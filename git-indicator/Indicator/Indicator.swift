@@ -51,12 +51,22 @@ class Indicator: NSViewController {
                 print("error: \(err.localizedDescription)")
                 return
             }
-            print("opt finished: \(response.description)")
-            self.initWebviewData(data: response.description)
+//            print("opt finished: \(response.description)")
+            self.saveWebviewData(userData: response.description)
         }
     }
     
-    func initWebviewData(data: String) {
+    func saveWebviewData(userData: String) {
+        var sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         
+        if sp.count > 0 {
+            let url = NSURL(fileURLWithPath: "\(sp[0])/data.json")
+            print(url)
+            let data = NSMutableData()
+            data.append(NSData(data: userData.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
+            
+            data.write(toFile: url.path!, atomically: true)
+            print("end")
+        }
     }
 }
