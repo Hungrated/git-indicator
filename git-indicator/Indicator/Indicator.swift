@@ -27,25 +27,17 @@ class Indicator: NSViewController {
     
     func loadMainView() {
         if let path = Bundle.main.path(forResource: "index", ofType: "html"){
-            
             let url = NSURL.fileURL(withPath: path)
-            
             let request = URLRequest(url: url)
-            
             self.mainView.mainFrame.load(request)
-            
             self.getGithubUserData(username: "Hungrated")
         }
     }    
     
     @IBAction func preferencesClicked(_ sender: AnyObject) {
-        
         let prefViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
-        
         let prefWindow = NSWindow(contentViewController: prefViewController)
-        
         prefWindowController = NSWindowController(window: prefWindow)
-        
         prefWindowController?.showWindow(nil)
     }
     
@@ -61,7 +53,6 @@ class Indicator: NSViewController {
             }
             print("opt finished: \(response.description)")
             self.initWebviewData(data: response.description)
-            //print("data is: \(response.data)") access the response of the data with response.data
         }
     }
     
