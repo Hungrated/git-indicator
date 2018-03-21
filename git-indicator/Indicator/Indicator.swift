@@ -22,7 +22,8 @@ class Indicator: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMainView(username: "Hungrated")
+        archiveUserData(username: "zjhch123")
+        loadMainView(username: "zjhch123")
     }
     
     func loadMainView(username: String) {
