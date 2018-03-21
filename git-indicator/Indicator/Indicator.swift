@@ -30,8 +30,6 @@ class Indicator: NSViewController {
         let fileManager = FileManager.default
         let exist = fileManager.fileExists(atPath: "\(sp[0])/index.html")
         if exist == false {
-            saveWebviewData(userData: username)
-        } else {
             archiveUserData(username: username)
         }
         let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
@@ -57,6 +55,7 @@ class Indicator: NSViewController {
             if let err = response.error {
                 print("error: \(err.localizedDescription)")
             }
+            print(response.description)
             self.saveWebviewData(userData: response.description)
         }
     }
