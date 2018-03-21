@@ -32,6 +32,11 @@ class Indicator: NSViewController {
         if exist == false {
             archiveUserData(username: username)
         }
+        loadMainViewFromHTML()
+    }
+    
+    func loadMainViewFromHTML() {
+        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
         let request = URLRequest(url: url)
         self.mainView.mainFrame.load(request)
@@ -45,9 +50,6 @@ class Indicator: NSViewController {
             try! fileManager.removeItem(atPath: "\(sp[0])/index.html")
         }
         saveWebviewData(userData: username)
-        let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
-        let request = URLRequest(url: url)
-        self.mainView.mainFrame.load(request)
     }
     
     func archiveUserData(username: String) {
