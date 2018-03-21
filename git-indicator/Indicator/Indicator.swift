@@ -51,7 +51,6 @@ class Indicator: NSViewController {
                 print("error: \(err.localizedDescription)")
                 return
             }
-//            print("opt finished: \(response.description)")
             self.saveWebviewData(userData: response.description)
         }
     }
