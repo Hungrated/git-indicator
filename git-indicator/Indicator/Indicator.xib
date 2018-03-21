@@ -39,7 +39,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-bo-bJC">
                     <rect key="frame" x="3" y="0.0" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="RefreshIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="FUB-Dt-D9e">
+                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="RefreshIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="FUB-Dt-D9e">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -80,8 +80,8 @@
         </customObject>
     </objects>
     <resources>
-        <image name="PreferenceIcon" width="128" height="128"/>
-        <image name="QuitIcon" width="128" height="128"/>
-        <image name="RefreshIcon" width="128" height="128"/>
+        <image name="PreferenceIcon" width="64" height="64"/>
+        <image name="QuitIcon" width="64" height="64"/>
+        <image name="RefreshIcon" width="64" height="64"/>
     </resources>
 </document>

@@ -22,17 +22,69 @@ class Indicator: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMainView()
+        loadMainView(username: "Hungrated")
     }
     
-    func loadMainView() {
-        if let path = Bundle.main.path(forResource: "index", ofType: "html"){
-            let url = NSURL.fileURL(withPath: path)
-            let request = URLRequest(url: url)
-            self.mainView.mainFrame.load(request)
-            self.getGithubUserData(username: "Hungrated")
+    func loadMainView(username: String) {
+        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let fileManager = FileManager.default
+        let exist = fileManager.fileExists(atPath: "\(sp[0])/index.html")
+        if exist == false {
+            saveWebviewData(userData: username)
+        } else {
+            archiveUserData(username: username)
         }
-    }    
+        let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
+        let request = URLRequest(url: url)
+        self.mainView.mainFrame.load(request)
+    }
+    
+    func refreshMainView(username: String) {
+        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let fileManager = FileManager.default
+        let exist = fileManager.fileExists(atPath: "\(sp[0])/index.html")
+        if exist == true {
+            try! fileManager.removeItem(atPath: "\(sp[0])/index.html")
+        }
+        saveWebviewData(userData: username)
+        let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
+        let request = URLRequest(url: url)
+        self.mainView.mainFrame.load(request)
+    }
+    
+    func archiveUserData(username: String) {
+        HTTP.GET("https://github.com/\(username)") { response in
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+            }
+            self.saveWebviewData(userData: response.description)
+        }
+    }
+    
+    func saveWebviewData(userData: String) {
+        var sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        if sp.count > 0 {
+            // 1 copy index.html if not exist
+            let fileManager = FileManager.default
+            let viewPath = "\(sp[0])/index.html"
+            let exist = fileManager.fileExists(atPath: viewPath)
+            if exist == true {
+                print("index.html already exists")
+            } else {
+                let originalPath = Bundle.main.path(forResource: "index", ofType: "html")
+                try! fileManager.copyItem(atPath: originalPath!, toPath: viewPath)
+                print("index.html saved")
+            }
+            
+            // 2 save data.json
+            let url = NSURL(fileURLWithPath: "\(sp[0])/data.json")
+            print(url)
+            let data = NSMutableData()
+            data.append(NSData(data: userData.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
+            data.write(toFile: url.path!, atomically: true)
+            print("data.json saved")
+        }
+    }
     
     @IBAction func preferencesClicked(_ sender: AnyObject) {
         let prefViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
@@ -43,29 +95,5 @@ class Indicator: NSViewController {
     
     @IBAction func quitClicked(_ sender: AnyObject) {
         NSApplication.shared.terminate(self)
-    }
-    
-    func getGithubUserData(username: String) {
-        HTTP.GET("https://github.com/\(username)") { response in
-            if let err = response.error {
-                print("error: \(err.localizedDescription)")
-                return
-            }
-            self.saveWebviewData(userData: response.description)
-        }
-    }
-    
-    func saveWebviewData(userData: String) {
-        var sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        
-        if sp.count > 0 {
-            let url = NSURL(fileURLWithPath: "\(sp[0])/data.json")
-            print(url)
-            let data = NSMutableData()
-            data.append(NSData(data: userData.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
-            
-            data.write(toFile: url.path!, atomically: true)
-            print("end")
-        }
     }
 }

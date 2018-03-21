@@ -30,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
             button.action = #selector(togglePopover(sender:))
         }
-        
         popover.contentViewController = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
     }
     

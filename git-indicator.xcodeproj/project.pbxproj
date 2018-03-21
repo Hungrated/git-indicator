@@ -20,6 +20,7 @@
 		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
 		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
 		44AB8896205FDCBF005E06D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
+		44F13FDB206264CE00158704 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 44F13FDA206264CE00158704 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44F13FD620625C7500158704 /* git-indicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "git-indicator.entitlements"; sourceTree = "<group>"; };
+		44F13FDA206264CE00158704 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		44316B48204ADB8C00381C12 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
+				44F13FDA206264CE00158704 /* index.html */,
 				44376EA7204B910200017AC6 /* Indicator.swift */,
 				44376EA8204B910200017AC6 /* Indicator.xib */,
 			);
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F13FDB206264CE00158704 /* index.html in Resources */,
 				443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */,
 				443C4895204AA245004290A0 /* .gitignore in Resources */,
 				443C4898204ABA82004290A0 /* README.md in Resources */,
