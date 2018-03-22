@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var popover: NSPopover!
     
+    var mainIndicator: Indicator?
+    
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     var eventMonitor: EventMonitor?
@@ -30,8 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
             button.action = #selector(togglePopover(sender:))
         }
-        popover.contentViewController = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
+        mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
+        mainIndicator?.refreshIndexHtml()
+        popover.contentViewController = mainIndicator        
     }
+    
     
     func controllerEventMonitor () {
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
@@ -50,6 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
+            self.mainIndicator?.getDataJson(username: "Hungrated")
         }
     }
     
