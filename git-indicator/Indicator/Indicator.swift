@@ -17,9 +17,7 @@ class Indicator: NSViewController {
     @IBOutlet weak var preferences: NSButton!
     @IBOutlet weak var quit: NSButton!
     
-    var windowController: NSWindowController?
-    var prefWindowController: NSWindowController?
-    
+    var prefWindowController = Preferences(windowNibName: NSNib.Name(rawValue: "Preferences"))
     let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
     var jsonGetCount : Int = 0 {
         didSet {
@@ -82,10 +80,7 @@ class Indicator: NSViewController {
     // action func
         
     @IBAction func preferencesClicked(_ sender: AnyObject) {
-        let prefViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
-        let prefWindow = NSWindow(contentViewController: prefViewController)
-        prefWindowController = NSWindowController(window: prefWindow)
-        prefWindowController?.showWindow(nil)
+        prefWindowController.showWindow(nil)
     }
     
     @IBAction func quitClicked(_ sender: AnyObject) {

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44346526204C401E0086EC2D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44346524204C401E0086EC2D /* Preferences.swift */; };
-		44346527204C401E0086EC2D /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44346525204C401E0086EC2D /* Preferences.xib */; };
 		44376EA9204B910200017AC6 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44376EA7204B910200017AC6 /* Indicator.swift */; };
 		44376EAA204B910200017AC6 /* Indicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44376EA8204B910200017AC6 /* Indicator.xib */; };
 		443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C4886204A9D7D004290A0 /* AppDelegate.swift */; };
@@ -17,6 +15,8 @@
 		443C4895204AA245004290A0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 443C4894204AA245004290A0 /* .gitignore */; };
 		443C4898204ABA82004290A0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 443C4897204ABA82004290A0 /* README.md */; };
 		445784AB2064C86200AB55D4 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 445784A82064C86100AB55D4 /* bundle.js */; };
+		445784B22064D20900AB55D4 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445784B02064D20900AB55D4 /* Preferences.swift */; };
+		445784B32064D20900AB55D4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445784B12064D20900AB55D4 /* Preferences.xib */; };
 		4474A23620615ED700E17225 /* SwiftHTTP.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		449942F2204BCD78005E430E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449942F1204BCD78005E430E /* EventMonitor.swift */; };
 		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
@@ -56,8 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		44346524204C401E0086EC2D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		44346525204C401E0086EC2D /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		44376EA7204B910200017AC6 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		44376EA8204B910200017AC6 /* Indicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Indicator.xib; sourceTree = "<group>"; };
 		443C4883204A9D7D004290A0 /* git-indicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "git-indicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +66,8 @@
 		443C4894204AA245004290A0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		443C4897204ABA82004290A0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		445784A82064C86100AB55D4 /* bundle.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bundle.js; sourceTree = "<group>"; };
+		445784B02064D20900AB55D4 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		445784B12064D20900AB55D4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		449942F1204BCD78005E430E /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -102,8 +102,8 @@
 		44376EAD204BB18600017AC6 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				44346524204C401E0086EC2D /* Preferences.swift */,
-				44346525204C401E0086EC2D /* Preferences.xib */,
+				445784B02064D20900AB55D4 /* Preferences.swift */,
+				445784B12064D20900AB55D4 /* Preferences.xib */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -250,11 +250,11 @@
 			files = (
 				445784AB2064C86200AB55D4 /* bundle.js in Resources */,
 				44F13FDB206264CE00158704 /* index.html in Resources */,
+				445784B32064D20900AB55D4 /* Preferences.xib in Resources */,
 				443C4889204A9D7D004290A0 /* Assets.xcassets in Resources */,
 				443C4895204AA245004290A0 /* .gitignore in Resources */,
 				443C4898204ABA82004290A0 /* README.md in Resources */,
 				443C488C204A9D7D004290A0 /* Main.xib in Resources */,
-				44346527204C401E0086EC2D /* Preferences.xib in Resources */,
 				44376EAA204B910200017AC6 /* Indicator.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +268,7 @@
 			files = (
 				44376EA9204B910200017AC6 /* Indicator.swift in Sources */,
 				443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */,
-				44346526204C401E0086EC2D /* Preferences.swift in Sources */,
+				445784B22064D20900AB55D4 /* Preferences.swift in Sources */,
 				449942F2204BCD78005E430E /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
