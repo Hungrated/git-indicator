@@ -15,8 +15,8 @@
         }
 
         html, body {
-            width: 600px;
-            height: 300px;
+            width: 480px;
+            height: 270px;
             background: #434343;
             color: #CCCCCC;
             font-family: "-apple-system";
@@ -30,7 +30,7 @@
         }
 
         .g-graph {
-            height: 209px;
+            height: 179px;
             border-top: 1px dashed #888888;
             padding: 10px;
         }
@@ -47,7 +47,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 600px;
+            width: 480px;
             height: 90px;
         }
 
@@ -94,7 +94,7 @@
 </head>
 <body>
 <div class="g-graph">
-    <div id="graph" style="width: 600px; height: 200px; margin-top: -28px;"></div>
+    <div id="graph" style="width: 480px; height: 200px; margin-top: -24px;"></div>
 </div>
 <div class="g-info">
     <div class="m-avatar J_avatar"></div>
@@ -107,22 +107,6 @@
             <strong class="J_count">0</strong> commit(s).</p>
     </div>
     <div class="u-hover"></div>
-</div>
-<script type="text/javascript" src="bundle.js"></script>
-</head>
-<body>
-<div class="g-graph J_graph">
-</div>
-<div class="g-info">
-    <div class="m-avatar J_avatar"></div>
-    <div class="m-info">
-        <p class="m-username">
-            <strong class="J_username">&lt;&nbsp;User&nbsp;&gt;</strong>
-        </p>
-        <p class="m-count">Github Contributions today:
-            <span class="m-color J_color"></span>
-            <strong class="J_count">0</strong> commits.</p>
-    </div>
 </div>
 <script type="text/javascript">
     $.get('./data.json', function (data) {
@@ -142,10 +126,8 @@
         $('.J_avatar').html('<img src="' + avatar + '">')
         $('.J_color').css('background', today.color)
         $('.J_count').html(today.count)
-
         var chartData = []
         var max = 1
-
         commitArray.forEach(function (_v) {
             var _unit = [
                 _v.match(/data-date="(.*)"/)[0].replace(/data-date=/, '').replace(/"/g, ''),
@@ -156,10 +138,8 @@
             }
             chartData.push(_unit)
         })
-
         var levelRange = Math.floor(max / 4)
         var myChart = echarts.init(document.getElementById('graph'))
-
         var option = {
             visualMap: [
                 {
@@ -177,14 +157,14 @@
                 }
             ],
             calendar: {
-                left: '23',
+                left: '36',
                 range: [chartData[0][0], chartData[179][0]],
+                cellSize: 15,
                 splitLine: {
                     show: false
                 },
                 itemStyle: {
                     color: '#ebedf0',
-                    borderType: 'dotted',
                     borderColor: '#575757'
                 },
                 dayLabel: {
@@ -204,11 +184,8 @@
                 coordinateSystem: 'calendar',
                 data: chartData
             }
-
         }
-
         myChart.setOption(option)
-
     }
 </script>
 </body>
