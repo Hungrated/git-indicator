@@ -109,9 +109,35 @@
     <div class="u-hover"></div>
 </div>
 <script type="text/javascript">
+    var refreshCount = 0
+    var dataTemp = ''
+
     $.get('./data.json', function (data) {
+        dataTemp = data
         handleData(data)
     })
+
+    var r = setInterval('refreshData()', 1500)
+
+    function refreshData() {
+        $.get('./data.json', function (data) {
+            if (dataChanged(dataTemp, data) || refreshCount > 3) {
+                handleData(data)
+                r = window.clearInterval(r)
+            }
+            refreshCount = refreshCount + 1
+            dataTemp = data
+            console.log('refresh: ' + refreshCount)
+        })
+    }
+
+    function dataChanged(_temp, _new) {
+        var _username = _temp.match(/https:\/\/github.com\/(.*)\n/)[1]
+        var _commitCountToday = _temp.match(/fill=(.*)\/>/g).slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
+        var username = _new.match(/https:\/\/github.com\/(.*)\n/)[1]
+        var commitCountToday = _new.match(/fill=(.*)\/>/g).slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
+        return !(username === _username && commitCountToday === _commitCountToday)
+    }
 
     function handleData(data) {
         var commitArray = data.match(/fill=(.*)\/>/g).slice(-180)
