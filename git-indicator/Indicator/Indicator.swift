@@ -46,9 +46,22 @@ class Indicator: NSViewController {
         print("\(resource).\(type) saved.")
     }
     
+    func refreshFileIfNotExist (resource: String, type: String) {
+        let fileManager = FileManager.default
+        let filePath = "\(sp[0])/\(resource).\(type)"
+        let exist = fileManager.fileExists(atPath: filePath)
+        if exist == false {
+            let originalPath = Bundle.main.path(forResource: resource, ofType: type)
+            try! fileManager.copyItem(atPath: originalPath!, toPath: filePath)
+            print("\(resource).\(type) saved.")
+        } else {
+            print("\(resource).\(type) exists.")
+        }
+    }
+    
     func refreshViewFile () {
         refreshFile(resource: "index", type: "html")
-        refreshFile(resource: "bundle", type: "js")
+        refreshFileIfNotExist(resource: "bundle", type: "js")
     }
     
     func getDataJson (username: String) {

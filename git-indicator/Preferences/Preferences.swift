@@ -10,6 +10,7 @@ import Cocoa
 
 class Preferences: NSWindowController {
 
+    
     @IBOutlet weak var submit: NSButton!
     @IBOutlet weak var username: NSTextField!
     

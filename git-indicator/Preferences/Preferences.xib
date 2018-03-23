@@ -7,8 +7,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Preferences" customModule="git_indicator" customModuleProvider="target">
             <connections>
-                <outlet property="submit" destination="uGz-Zd-1S5" id="eHA-zA-X8h"/>
-                <outlet property="submitClicked" destination="uGz-Zd-1S5" id="2QX-rn-gVT"/>
                 <outlet property="username" destination="CsE-GH-BSp" id="MNn-06-1h6"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -24,20 +22,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-Zd-1S5">
-                        <rect key="frame" x="109" y="13" width="83" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bE0-yU-Ci1">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="submitClicked:" target="fBP-BU-dYd" id="oL8-Av-d0c"/>
-                        </connections>
-                    </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-GH-BSp">
                         <rect key="frame" x="121" y="71" width="136" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -56,6 +40,17 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fa-Yh-mh9">
+                        <rect key="frame" x="109" y="13" width="83" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r8g-bT-PKS">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="submitClicked:" target="fBP-BU-dYd" id="a8T-bu-vbE"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <connections>
@@ -65,6 +60,8 @@ DQ
         </window>
         <customObject id="fBP-BU-dYd" customClass="Preferences" customModule="git_indicator" customModuleProvider="target">
             <connections>
+                <outlet property="submit" destination="2Fa-Yh-mh9" id="gXd-nL-haN"/>
+                <outlet property="username" destination="CsE-GH-BSp" id="aik-Z1-btU"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="Qxv-ju-vbS"/>
             </connections>
         </customObject>
