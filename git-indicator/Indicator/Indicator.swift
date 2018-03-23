@@ -35,30 +35,22 @@ class Indicator: NSViewController {
     
     // logic func
     
-    func refreshIndexHtml () {
+    func refreshFile (resource: String, type: String) {
         let fileManager = FileManager.default
-        let viewPath = "\(sp[0])/index.html"
-        let exist = fileManager.fileExists(atPath: viewPath)
+        let filePath = "\(sp[0])/\(resource).\(type)"
+        let exist = fileManager.fileExists(atPath: filePath)
         if exist == true {
-            try! fileManager.removeItem(atPath: viewPath)
-            print("previous index.html removed.")
+            try! fileManager.removeItem(atPath: filePath)
+            print("previous \(resource).\(type) removed.")
         }
-        let originalPath = Bundle.main.path(forResource: "index", ofType: "html")
-        try! fileManager.copyItem(atPath: originalPath!, toPath: viewPath)
-        print("index.html saved.")
+        let originalPath = Bundle.main.path(forResource: resource, ofType: type)
+        try! fileManager.copyItem(atPath: originalPath!, toPath: filePath)
+        print("\(resource).\(type) saved.")
     }
     
-    func refreshBundleJs () {
-        let bundleFileManager = FileManager.default
-        let bundlePath = "\(sp[0])/bundle.js"
-        let exist = bundleFileManager.fileExists(atPath: bundlePath)
-        if exist == true {
-            try! bundleFileManager.removeItem(atPath: bundlePath)
-            print("previous bundle.js removed.")
-        }
-        let bundleOriginalPath = Bundle.main.path(forResource: "bundle", ofType: "js")
-        try! bundleFileManager.copyItem(atPath: bundleOriginalPath!, toPath: bundlePath)
-        print("bundle.js saved.")
+    func refreshViewFile () {
+        refreshFile(resource: "index", type: "html")
+        refreshFile(resource: "bundle", type: "js")
     }
     
     func getDataJson (username: String) {

@@ -33,8 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(sender:))
         }
         mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
-        mainIndicator?.refreshIndexHtml()
-        mainIndicator?.refreshBundleJs()
+        mainIndicator?.refreshViewFile()
         popover.contentViewController = mainIndicator        
     }
     
