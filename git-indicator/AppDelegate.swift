@@ -15,9 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var mainIndicator: Indicator?
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
     var eventMonitor: EventMonitor?
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         controllerInit()
@@ -37,7 +37,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = mainIndicator        
     }
     
-    
     func controllerEventMonitor () {
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
             if self.popover.isShown {
@@ -45,6 +44,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         eventMonitor?.start();
+    }
+    
+    func getUserData () -> String {
+        let userDataPath = NSHomeDirectory() + "/Documents/userdata.plist"
+        let userDataDict: NSDictionary? = NSDictionary(contentsOfFile: userDataPath)
+        return userDataDict!["username"]! as! String
     }
     
     @objc func quitClicked(sender: AnyObject?) {
@@ -55,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
-            self.mainIndicator?.getDataJson(username: "Hungrated")
+            self.mainIndicator?.getDataJson(username: self.getUserData())
             self.mainIndicator?.refreshMainView()
         }
     }

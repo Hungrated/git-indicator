@@ -14,18 +14,22 @@ class Preferences: NSWindowController {
     @IBOutlet weak var submit: NSButton!
     @IBOutlet weak var username: NSTextField!
     
+    let userDataPath = NSHomeDirectory() + "/Documents/userdata.plist"
+    
     override func windowDidLoad() {
         super.windowDidLoad()
-
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        let userDataDict: NSDictionary? = NSDictionary(contentsOfFile: userDataPath)
+        username.stringValue = userDataDict!["username"]! as! String
     }
     
-    func submitData () {
-        print("data submitted.")
+    func saveData () {
+        let newUserDataDict: NSDictionary = ["username": username.stringValue]
+        newUserDataDict.write(toFile: userDataPath, atomically:true)
+        print("data submitted: new username \(username.stringValue)")
     }
     
     @IBAction func submitClicked(_ sender: AnyObject) {
-        submitData()
+        saveData()
         self.close()
     }
 }
