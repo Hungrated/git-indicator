@@ -44,7 +44,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="reload:" target="43k-QN-5Gd" id="zhH-kW-Sfc"/>
+                        <action selector="reload:" target="43k-QN-5Gd" id="ebJ-Qw-f63"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-8t-cFZ">
@@ -74,6 +74,7 @@
         </customView>
         <customObject id="Adx-C1-3dU" customClass="Indicator" customModule="git_indicator" customModuleProvider="target">
             <connections>
+                <outlet property="mainView" destination="43k-QN-5Gd" id="1NB-1W-PfV"/>
                 <outlet property="preferences" destination="x1O-8t-cFZ" id="nad-NJ-NWb"/>
                 <outlet property="quit" destination="ove-O3-iXn" id="Wx9-gy-RBb"/>
             </connections>

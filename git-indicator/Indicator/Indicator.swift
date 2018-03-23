@@ -20,74 +20,62 @@ class Indicator: NSViewController {
     var windowController: NSWindowController?
     var prefWindowController: NSWindowController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        archiveUserData(username: "zjhch123")
-        loadMainView(username: "zjhch123")
+    let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+    var jsonGetCount : Int = 0 {
+        didSet {
+            print("refresh count: \(String(self.jsonGetCount))")
+//            self.refreshMainView()
+        }
     }
     
-    func loadMainView(username: String) {
-        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        let fileManager = FileManager.default
-        let exist = fileManager.fileExists(atPath: "\(sp[0])/index.html")
-        if exist == false {
-            archiveUserData(username: username)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
         loadMainViewFromHTML()
     }
     
+    // logic func
+    
+    func refreshIndexHtml () {
+        let fileManager = FileManager.default
+        let viewPath = "\(sp[0])/index.html"
+        let exist = fileManager.fileExists(atPath: viewPath)
+        if exist == true {
+            try! fileManager.removeItem(atPath: viewPath)
+            print("previous index.html removed.")
+        }
+        let originalPath = Bundle.main.path(forResource: "index", ofType: "html")
+        try! fileManager.copyItem(atPath: originalPath!, toPath: viewPath)
+        print("index.html saved.")
+    }
+    
+    func getDataJson (username: String) {
+        HTTP.GET("https://github.com/\(username)") { (response) in
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+                return
+            }
+            let url = NSURL(fileURLWithPath: "\(self.sp[0])/data.json")
+            let data = NSMutableData()
+            data.append(NSData(data: response.description.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
+            data.write(toFile: url.path!, atomically: true)
+            self.jsonGetCount = self.jsonGetCount + 1
+            print("data.json saved.")
+        }
+    }
+    
     func loadMainViewFromHTML() {
-        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         let url = NSURL.fileURL(withPath:"\(sp[0])/index.html")
         let request = URLRequest(url: url)
         self.mainView.mainFrame.load(request)
     }
     
-    func refreshMainView(username: String) {
-        let sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        let fileManager = FileManager.default
-        let exist = fileManager.fileExists(atPath: "\(sp[0])/index.html")
-        if exist == true {
-            try! fileManager.removeItem(atPath: "\(sp[0])/index.html")
-        }
-        saveWebviewData(userData: username)
+    func refreshMainView() {
+        self.mainView.mainFrame.reload()
+        print("in indicator: refresh")
     }
     
-    func archiveUserData(username: String) {
-        HTTP.GET("https://github.com/\(username)") { response in
-            if let err = response.error {
-                print("error: \(err.localizedDescription)")
-            }
-            print(response.description)
-            self.saveWebviewData(userData: response.description)
-        }
-    }
-    
-    func saveWebviewData(userData: String) {
-        var sp = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        if sp.count > 0 {
-            // 1 copy index.html if not exist
-            let fileManager = FileManager.default
-            let viewPath = "\(sp[0])/index.html"
-            let exist = fileManager.fileExists(atPath: viewPath)
-            if exist == true {
-                print("index.html already exists")
-            } else {
-                let originalPath = Bundle.main.path(forResource: "index", ofType: "html")
-                try! fileManager.copyItem(atPath: originalPath!, toPath: viewPath)
-                print("index.html saved")
-            }
-            
-            // 2 save data.json
-            let url = NSURL(fileURLWithPath: "\(sp[0])/data.json")
-            print(url)
-            let data = NSMutableData()
-            data.append(NSData(data: userData.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
-            data.write(toFile: url.path!, atomically: true)
-            print("data.json saved")
-        }
-    }
-    
+    // action func
+        
     @IBAction func preferencesClicked(_ sender: AnyObject) {
         let prefViewController = NSViewController(nibName: NSNib.Name(rawValue: "Preferences"), bundle: Bundle.main)
         let prefWindow = NSWindow(contentViewController: prefViewController)

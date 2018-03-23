@@ -87,7 +87,7 @@
 				5C135F141C47366700AA3A01 /* SwiftHTTP.h */,
 				6BFD901919C8D8B500DD99B6 /* Supporting Files */,
 			);
-			path = SwiftHTTP;
+			name = SwiftHTTP;
 			sourceTree = "<group>";
 		};
 		6BFD901919C8D8B500DD99B6 /* Supporting Files */ = {
