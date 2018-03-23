@@ -15,21 +15,24 @@
         }
 
         html, body {
-            width: 480px;
-            height: 240px;
+            width: 600px;
+            height: 300px;
             background: #434343;
             color: #CCCCCC;
             font-family: "-apple-system";
+            overflow: hidden;
         }
 
         .g-graph, .g-info {
             padding: 18px;
             width: 100%;
+            overflow: hidden;
         }
 
         .g-graph {
-            height: 149px;
+            height: 209px;
             border-top: 1px dashed #888888;
+            padding: 10px;
         }
 
         .g-info {
@@ -38,6 +41,14 @@
             border-bottom: 1px dashed #999999;
             padding-left: 115px;
             position: relative;
+        }
+
+        .g-info .u-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 90px;
         }
 
         .g-info .m-avatar {
@@ -76,12 +87,14 @@
             height: 15px;
             margin: 0 10px -2px 10px;
             background: #ebedf0;
+            box-shadow: 0 0 5px #ebedf0;
         }
     </style>
     <script type="text/javascript" src="bundle.js"></script>
 </head>
 <body>
-<div class="g-graph J_graph">
+<div class="g-graph">
+    <div id="graph" style="width: 600px; height: 200px; margin-top: -28px;"></div>
 </div>
 <div class="g-info">
     <div class="m-avatar J_avatar"></div>
@@ -91,8 +104,9 @@
         </p>
         <p class="m-count">Github Contributions today:
             <span class="m-color J_color"></span>
-            <strong class="J_count">0</strong> commits.</p>
+            <strong class="J_count">0</strong> commit(s).</p>
     </div>
+    <div class="u-hover"></div>
 </div>
 <script type="text/javascript">
     var data = `URL:
@@ -1086,7 +1100,7 @@
             <rect class="day" width="10" height="10" x="-39" y="0" fill="#7bc96f" data-count="12" data-date="2018-03-18"/>
             <rect class="day" width="10" height="10" x="-39" y="12" fill="#ebedf0" data-count="0" data-date="2018-03-19"/>
             <rect class="day" width="10" height="10" x="-39" y="24" fill="#c6e48b" data-count="1" data-date="2018-03-20"/>
-            <rect class="day" width="10" height="10" x="-39" y="36" fill="#ebedf0" data-count="0" data-date="2018-03-21"/>
+            <rect class="day" width="10" height="10" x="-36" y="12" fill="#196127" data-count="23" data-date="2018-03-21"/>
             </g>
             <text x="37" y="-10" class="month">Apr</text>
             <text x="97" y="-10" class="month">May</text>
@@ -1322,19 +1336,88 @@
     handleData(data)
 
     function handleData(data) {
-        var commitArray = data.match(/fill=(.*)\/>/g)
+        var commitArray = data.match(/fill=(.*)\/>/g).slice(-180)
         var username = data.match(/https:\/\/github.com\/(.*)\n/)[1]
-        var avatar = data.match(/https:\/\/avatars2.githubusercontent.com\/u\/[0-9]*/)[0]
-        var rawToday = commitArray[commitArray.length - 1]
+        var avatar = data.match(/https:\/\/avatars2.githubusercontent.com\/u\/[0-9]*/)[0] + '?s=50'
+        var rawToday = commitArray[179]
         var today = {
-            count: rawToday.match(/\"[0-9]*\"/)[0].replace(/"/g, ''),
+            count: rawToday.match(/"[0-9]*"/)[0].replace(/"/g, ''),
             color: rawToday.match(/#([0-9a-fA-F]*)/)[0]
         }
         $('.J_username').html(username)
         $('.J_avatar').html('<img src="' + avatar + '">')
         $('.J_color').css('background', today.color)
         $('.J_count').html(today.count)
+
+        var chartData = []
+        var max = 1
+
+        commitArray.forEach(function (_v) {
+            var _unit = [
+                _v.match(/data-date="(.*)"/)[0].replace(/data-date=/, '').replace(/"/g, ''),
+                Number(_v.match(/"[0-9]*"/)[0].replace(/"/g, ''))
+            ]
+            if (_unit[1] > max) {
+                max = _unit[1]
+            }
+            chartData.push(_unit)
+        })
+
+        var levelRange = Math.floor(max / 4)
+        var myChart = echarts.init(document.getElementById('graph'))
+
+        var option = {
+            visualMap: [
+                {
+                    type: 'piecewise',
+                    show: false,
+                    min: 0,
+                    max: max,
+                    pieces: [
+                        {value: 0, color: '#ebedf0'},
+                        {min: 0, max: levelRange, color: '#c6e48b'},
+                        {min: levelRange + 1, max: levelRange * 2, color: '#7bc96f'},
+                        {min: levelRange * 2 + 1, max: levelRange * 3, color: '#239a3b'},
+                        {min: levelRange * 3 + 1, max: max, color: '#196127'}
+                    ]
+                }
+            ],
+            calendar: {
+                left: '18',
+                range: [chartData[0][0], chartData[179][0]],
+                splitLine: {
+                    show: false
+                },
+                itemStyle: {
+                    color: '#ebedf0',
+                    borderType: 'dotted',
+                    borderColor: '#575757'
+                },
+                dayLabel: {
+                    show: false
+                },
+                monthLabel: {
+                    formatter: '\'{yy}-{MM}',
+                    color: '#ebedf0',
+                    fontWeight: 'lighter'
+                },
+                yearLabel: {
+                    show: false
+                }
+            },
+            series: {
+                type: 'heatmap',
+                coordinateSystem: 'calendar',
+                data: chartData
+            }
+
+        }
+
+        myChart.setOption(option)
+
     }
+
+
 </script>
 </body>
 </html>
