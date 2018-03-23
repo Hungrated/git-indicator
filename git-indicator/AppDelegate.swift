@@ -34,6 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
         mainIndicator?.refreshIndexHtml()
+        mainIndicator?.refreshBundleJs()
         popover.contentViewController = mainIndicator        
     }
     
@@ -56,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
             self.mainIndicator?.getDataJson(username: "Hungrated")
+            self.mainIndicator?.refreshMainView()
         }
     }
     

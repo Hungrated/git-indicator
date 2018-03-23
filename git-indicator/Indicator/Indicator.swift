@@ -48,6 +48,19 @@ class Indicator: NSViewController {
         print("index.html saved.")
     }
     
+    func refreshBundleJs () {
+        let bundleFileManager = FileManager.default
+        let bundlePath = "\(sp[0])/bundle.js"
+        let exist = bundleFileManager.fileExists(atPath: bundlePath)
+        if exist == true {
+            try! bundleFileManager.removeItem(atPath: bundlePath)
+            print("previous bundle.js removed.")
+        }
+        let bundleOriginalPath = Bundle.main.path(forResource: "bundle", ofType: "js")
+        try! bundleFileManager.copyItem(atPath: bundleOriginalPath!, toPath: bundlePath)
+        print("bundle.js saved.")
+    }
+    
     func getDataJson (username: String) {
         HTTP.GET("https://github.com/\(username)") { (response) in
             if let err = response.error {
@@ -71,7 +84,7 @@ class Indicator: NSViewController {
     
     func refreshMainView() {
         self.mainView.mainFrame.reload()
-        print("in indicator: refresh")
+        print("refreshed.")
     }
     
     // action func
