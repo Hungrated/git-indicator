@@ -17,9 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var eventMonitor: EventMonitor?
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
     var mainButton: NSButton?
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         controllerInit()
@@ -27,6 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {}
+    
+    // controller func
     
     func controllerInit() {
         statusItem.highlightMode = true
@@ -44,24 +46,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(sender: event)
             }
         }
-        eventMonitor?.start();
+        eventMonitor?.start()
     }
     
-    func getUserData () -> String {
-        let userDataPath = NSHomeDirectory() + "/Documents/userdata.plist"
-        let userDataDict: NSDictionary? = NSDictionary(contentsOfFile: userDataPath)
-        return userDataDict!["username"]! as! String
-    }
-    
-    @objc func quitClicked(sender: AnyObject?) {
-        NSApplication.shared.terminate(self)
-    }
+    // popover func
     
     @objc func showPopover(sender: AnyObject?) {
         if mainButton != nil {
             popover.show(relativeTo: (mainButton?.bounds)!, of: mainButton!, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
-            self.mainIndicator?.getDataJson(username: self.getUserData())
+            Utils.getDataJson()
             self.mainIndicator?.refreshMainView()
         }
     }

@@ -18,13 +18,6 @@ class Indicator: NSViewController {
     @IBOutlet weak var quit: NSButton!
     
     var prefWindowController = Preferences(windowNibName: NSNib.Name(rawValue: "Preferences"))
-    let mainPath = NSHomeDirectory() + "/Documents"
-    var jsonGetCount : Int = 0 {
-        didSet {
-            print("refresh count: \(String(self.jsonGetCount))")
-//            self.refreshMainView()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,55 +26,14 @@ class Indicator: NSViewController {
     
     // logic func
     
-    func refreshFile (resource: String, type: String) {
-        let fileManager = FileManager.default
-        let filePath = "\(mainPath)/\(resource).\(type)"
-        let exist = fileManager.fileExists(atPath: filePath)
-        if exist == true {
-            try! fileManager.removeItem(atPath: filePath)
-            print("previous \(resource).\(type) removed.")
-        }
-        let originalPath = Bundle.main.path(forResource: resource, ofType: type)
-        try! fileManager.copyItem(atPath: originalPath!, toPath: filePath)
-        print("\(resource).\(type) saved.")
-    }
-    
-    func refreshFileIfNotExist (resource: String, type: String) {
-        let fileManager = FileManager.default
-        let filePath = "\(mainPath)/\(resource).\(type)"
-        let exist = fileManager.fileExists(atPath: filePath)
-        if exist == false {
-            let originalPath = Bundle.main.path(forResource: resource, ofType: type)
-            try! fileManager.copyItem(atPath: originalPath!, toPath: filePath)
-            print("\(resource).\(type) saved.")
-        } else {
-            print("\(resource).\(type) exists.")
-        }
-    }
-    
     func refreshViewFiles () {
-        refreshFile(resource: "index", type: "html")
-        refreshFileIfNotExist(resource: "bundle", type: "js")
-        refreshFileIfNotExist(resource: "userdata", type: "plist")
-    }
-    
-    func getDataJson (username: String) {
-        HTTP.GET("https://github.com/\(username)") { response in
-            if let err = response.error {
-                print("error: \(err.localizedDescription)")
-                return
-            }
-            let url = NSURL(fileURLWithPath: "\(self.mainPath)/data.json")
-            let data = NSMutableData()
-            data.append(NSData(data: response.description.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
-            data.write(toFile: url.path!, atomically: true)
-            self.jsonGetCount = self.jsonGetCount + 1
-            print("data.json saved. current user: \(username)")
-        }
+        Utils.refreshFile(resource: "index", type: "html", overwrite: true)
+        Utils.refreshFile(resource: "bundle", type: "js")
+        Utils.refreshFile(resource: "userdata", type: "plist")
     }
     
     func loadMainViewFromHTML() {
-        let url = NSURL.fileURL(withPath:"\(mainPath)/index.html")
+        let url = NSURL.fileURL(withPath:"\(Utils.FILE_DIR)/index.html")
         let request = URLRequest(url: url)
         self.mainView.mainFrame.load(request)
     }
