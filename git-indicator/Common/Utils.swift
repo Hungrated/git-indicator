@@ -10,6 +10,7 @@ import Foundation
 import SwiftHTTP
 
 struct Utils {
+    
     static let FILE_DIR = NSHomeDirectory() + "/Documents"
     
     static let FILE_MANAGER = FileManager.default
@@ -69,4 +70,5 @@ struct Utils {
         print("data submitted: new user: \(username)")
         Utils.getDataJson()
     }
+    
 }
