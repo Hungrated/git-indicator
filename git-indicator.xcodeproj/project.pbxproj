@@ -22,8 +22,8 @@
 		4480E7BB206697E6001005F8 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480E7BA206697E6001005F8 /* MainController.swift */; };
 		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
 		44AB8896205FDCBF005E06D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
-		44D6DD162066B224008A7994 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DD142066B224008A7994 /* Utils.swift */; };
-		44D6DD172066B224008A7994 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DD152066B224008A7994 /* EventMonitor.swift */; };
+		44D6DD1F2066B411008A7994 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DD1D2066B411008A7994 /* Utils.swift */; };
+		44D6DD202066B411008A7994 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DD1E2066B411008A7994 /* EventMonitor.swift */; };
 		44F13FDB206264CE00158704 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 44F13FDA206264CE00158704 /* index.html */; };
 /* End PBXBuildFile section */
 
@@ -75,8 +75,8 @@
 		4480E7BA206697E6001005F8 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		44D6DD142066B224008A7994 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "git-indicator/Library/Utils.swift"; sourceTree = SOURCE_ROOT; };
-		44D6DD152066B224008A7994 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = "git-indicator/Library/EventMonitor.swift"; sourceTree = SOURCE_ROOT; };
+		44D6DD1D2066B411008A7994 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		44D6DD1E2066B411008A7994 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		44F13FD620625C7500158704 /* git-indicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "git-indicator.entitlements"; sourceTree = "<group>"; };
 		44F13FDA206264CE00158704 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +138,7 @@
 		443C4885204A9D7D004290A0 /* git-indicator */ = {
 			isa = PBXGroup;
 			children = (
-				4480E7B120667377001005F8 /* Library */,
+				44D6DD1C2066B3ED008A7994 /* Library */,
 				44376EAD204BB18600017AC6 /* Preferences */,
 				44316B48204ADB8C00381C12 /* Indicator */,
 				443C4886204A9D7D004290A0 /* AppDelegate.swift */,
@@ -149,16 +149,6 @@
 				44F13FD620625C7500158704 /* git-indicator.entitlements */,
 			);
 			path = "git-indicator";
-			sourceTree = "<group>";
-		};
-		4480E7B120667377001005F8 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				44D6DD152066B224008A7994 /* EventMonitor.swift */,
-				44D6DD142066B224008A7994 /* Utils.swift */,
-			);
-			name = Library;
-			path = Common;
 			sourceTree = "<group>";
 		};
 		44AB888A205FDB4C005E06D1 /* Products */ = {
@@ -176,6 +166,15 @@
 				44B5D4FE205E816F00CA32F0 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44D6DD1C2066B3ED008A7994 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				44D6DD1E2066B411008A7994 /* EventMonitor.swift */,
+				44D6DD1D2066B411008A7994 /* Utils.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44D6DD162066B224008A7994 /* Utils.swift in Sources */,
+				44D6DD1F2066B411008A7994 /* Utils.swift in Sources */,
 				44376EA9204B910200017AC6 /* Indicator.swift in Sources */,
 				443C4887204A9D7D004290A0 /* AppDelegate.swift in Sources */,
-				44D6DD172066B224008A7994 /* EventMonitor.swift in Sources */,
+				44D6DD202066B411008A7994 /* EventMonitor.swift in Sources */,
 				445784B22064D20900AB55D4 /* Preferences.swift in Sources */,
 				4480E7BB206697E6001005F8 /* MainController.swift in Sources */,
 			);
