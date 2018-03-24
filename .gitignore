@@ -103,3 +103,4 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 /git-indicator/Indicator/data.json
+/git-indicator/Indicator/index-dev.html
