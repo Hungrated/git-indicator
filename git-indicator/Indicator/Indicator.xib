@@ -58,6 +58,17 @@
                         </connections>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-Rk-gNd">
+                    <rect key="frame" x="165" y="1" width="150" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Github Homepage" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="lqj-HD-ZAZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="homepageClicked:" target="Adx-C1-3dU" id="ODm-Fr-gI1"/>
+                    </connections>
+                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ove-O3-iXn">
                     <rect key="frame" x="437" y="1" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -70,7 +81,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="11" y="166.5"/>
+            <point key="canvasLocation" x="11" y="166"/>
         </customView>
         <customObject id="Adx-C1-3dU" customClass="Indicator" customModule="git_indicator" customModuleProvider="target">
             <connections>

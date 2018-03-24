@@ -38,10 +38,14 @@ class Indicator: NSViewController {
     }
     
     // action func
-        
+    
     @IBAction func preferencesClicked(_ sender: AnyObject) {
-        
         prefWindowController.showWindow(nil)
+    }
+    
+    @IBAction func homepageClicked(_ sender: AnyObject) {
+        let url = URL(string: "https://www.github.com/" + Utils.getUsername())
+        NSWorkspace.shared.open(url!)
     }
     
     @IBAction func quitClicked(_ sender: AnyObject) {
