@@ -12,15 +12,16 @@ import SwiftHTTP
 struct Utils {
     static let FILE_DIR = NSHomeDirectory() + "/Documents"
     
+    static let FILE_MANAGER = FileManager.default
+    
     static func refreshFile (resource: String, type: String, overwrite: Bool = false) {
         let fileManager = FileManager.default
         let filePath = "\(Utils.FILE_DIR)/\(resource).\(type)"
         let originalPath = Bundle.main.path(forResource: resource, ofType: type)
-        let exist = fileManager.fileExists(atPath: filePath)
+        let exist = Utils.FILE_MANAGER.fileExists(atPath: filePath)
         if exist == true {
             if overwrite == true {
-                try! fileManager.removeItem(atPath: filePath)
-                print("previous \(resource).\(type) removed.")
+                Utils.removeFile(resource: resource, type: type)
             } else {
                 print("\(resource).\(type) exists.")
                 return
@@ -28,6 +29,12 @@ struct Utils {
         }
         try! fileManager.copyItem(atPath: originalPath!, toPath: filePath)
         print("\(resource).\(type) saved.")
+    }
+    
+    static func removeFile (resource: String, type: String) {
+        let filePath = "\(Utils.FILE_DIR)/\(resource).\(type)"
+        try! Utils.FILE_MANAGER.removeItem(atPath: filePath)
+        print("previous \(resource).\(type) removed.")
     }
     
     static func refreshViewFiles () {
@@ -56,9 +63,9 @@ struct Utils {
         return userDataDict!["username"]! as! String
     }
     
-    static func saveUserData (username: String) {
+    static func setUsername (username: String) {
         let newUserDataDict: NSDictionary = ["username": username]
-        newUserDataDict.write(toFile: Utils.FILE_DIR, atomically:true)
+        newUserDataDict.write(toFile: "\(Utils.FILE_DIR)/userdata.plist", atomically: true)
         print("data submitted: new user: \(username)")
         Utils.getDataJson()
     }

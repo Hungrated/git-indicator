@@ -23,7 +23,7 @@ class Preferences: NSWindowController {
     // action func
     
     @IBAction func submitClicked(_ sender: AnyObject) {
-        Utils.saveUserData(username: username.stringValue)
+        Utils.setUsername(username: username.stringValue)
         self.close()
     }
 }
