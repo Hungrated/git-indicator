@@ -40,6 +40,7 @@ class Indicator: NSViewController {
     // action func
         
     @IBAction func preferencesClicked(_ sender: AnyObject) {
+        
         prefWindowController.showWindow(nil)
     }
     
