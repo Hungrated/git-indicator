@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainButton?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
         mainButton?.action = #selector(togglePopover(sender:))
         mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
-        mainIndicator?.refreshViewFiles()
+        Utils.refreshViewFiles()
         popover.contentViewController = mainIndicator
     }
     

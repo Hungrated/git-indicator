@@ -30,18 +30,24 @@ struct Utils {
         print("\(resource).\(type) saved.")
     }
     
+    static func refreshViewFiles () {
+        Utils.refreshFile(resource: "index", type: "html", overwrite: true)
+        Utils.refreshFile(resource: "bundle", type: "js")
+        Utils.refreshFile(resource: "userdata", type: "plist")
+    }
+    
     static func getDataJson () {
         let username = Utils.getUsername()
         HTTP.GET("https://github.com/\(username)") { response in
-        if let err = response.error {
-        print("error: \(err.localizedDescription)")
-        return
-        }
-        let url = NSURL(fileURLWithPath: "\(Utils.FILE_DIR)/data.json")
-        let data = NSMutableData()
-        data.append(NSData(data: response.description.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
-        data.write(toFile: url.path!, atomically: true)
-        print("data.json saved. current user: \(username)")
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+                return
+            }
+            let url = NSURL(fileURLWithPath: "\(Utils.FILE_DIR)/data.json")
+            let data = NSMutableData()
+            data.append(NSData(data: response.description.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
+            data.write(toFile: url.path!, atomically: true)
+            print("data.json saved. current user: \(username)")
         }
     }
     
@@ -53,7 +59,7 @@ struct Utils {
     static func saveUserData (username: String) {
         let newUserDataDict: NSDictionary = ["username": username]
         newUserDataDict.write(toFile: Utils.FILE_DIR, atomically:true)
-        print("data submitted: new username \(username)")
+        print("data submitted: new user: \(username)")
         Utils.getDataJson()
     }
 }

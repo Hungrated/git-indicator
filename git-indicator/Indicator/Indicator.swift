@@ -26,12 +26,6 @@ class Indicator: NSViewController {
     
     // logic func
     
-    func refreshViewFiles () {
-        Utils.refreshFile(resource: "index", type: "html", overwrite: true)
-        Utils.refreshFile(resource: "bundle", type: "js")
-        Utils.refreshFile(resource: "userdata", type: "plist")
-    }
-    
     func loadMainViewFromHTML() {
         let url = NSURL.fileURL(withPath:"\(Utils.FILE_DIR)/index.html")
         let request = URLRequest(url: url)
