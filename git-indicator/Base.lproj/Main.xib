@@ -13,16 +13,15 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="git_indicator" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customObject id="n5I-da-4iB" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
+        <customObject id="22k-F4-Lt5" customClass="MainController" customModule="git_indicator" customModuleProvider="target">
             <connections>
-                <outlet property="popover" destination="DBT-1g-uqp" id="ba0-Vb-wUv"/>
+                <outlet property="popover" destination="wls-S9-nPa" id="2qn-JM-RST"/>
             </connections>
         </customObject>
-        <viewController id="KHB-o9-wcQ" userLabel="Popover View Controller"/>
-        <popover id="DBT-1g-uqp">
+        <viewController id="i6u-W4-kop" userLabel="Popover View Controller"/>
+        <popover behavior="t" id="wls-S9-nPa">
             <connections>
-                <outlet property="contentViewController" destination="KHB-o9-wcQ" id="W4p-bI-LMg"/>
-                <outlet property="delegate" destination="n5I-da-4iB" id="YNV-I4-INW"/>
+                <outlet property="contentViewController" destination="i6u-W4-kop" id="bNt-XK-M1e"/>
             </connections>
         </popover>
     </objects>
