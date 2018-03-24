@@ -19,6 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
+    var mainButton: NSButton?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         controllerInit()
         controllerEventMonitor()
@@ -28,13 +30,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func controllerInit() {
         statusItem.highlightMode = true
-        if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
-            button.action = #selector(togglePopover(sender:))
-        }
+        mainButton = statusItem.button
+        mainButton?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+        mainButton?.action = #selector(togglePopover(sender:))
         mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
-        mainIndicator?.refreshViewFile()
-        popover.contentViewController = mainIndicator        
+        mainIndicator?.refreshViewFiles()
+        popover.contentViewController = mainIndicator
     }
     
     func controllerEventMonitor () {
@@ -57,8 +58,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showPopover(sender: AnyObject?) {
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        if mainButton != nil {
+            popover.show(relativeTo: (mainButton?.bounds)!, of: mainButton!, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
             self.mainIndicator?.getDataJson(username: self.getUserData())
             self.mainIndicator?.refreshMainView()

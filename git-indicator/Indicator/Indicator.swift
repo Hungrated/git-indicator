@@ -59,14 +59,14 @@ class Indicator: NSViewController {
         }
     }
     
-    func refreshViewFile () {
+    func refreshViewFiles () {
         refreshFile(resource: "index", type: "html")
         refreshFileIfNotExist(resource: "bundle", type: "js")
         refreshFileIfNotExist(resource: "userdata", type: "plist")
     }
     
     func getDataJson (username: String) {
-        HTTP.GET("https://github.com/\(username)") { (response) in
+        HTTP.GET("https://github.com/\(username)") { response in
             if let err = response.error {
                 print("error: \(err.localizedDescription)")
                 return

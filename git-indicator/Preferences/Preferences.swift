@@ -3,10 +3,11 @@
 //  git-indicator
 //
 //  Created by Zihang Zhang on 2018/3/23.
-//  Copyright © 2018年 Zihang Zhang. All rights reserved.
+//  Copyright © 2018 Zihang Zhang. All rights reserved.
 //
 
 import Cocoa
+import SwiftHTTP
 
 class Preferences: NSWindowController {
 
@@ -26,6 +27,22 @@ class Preferences: NSWindowController {
         let newUserDataDict: NSDictionary = ["username": username.stringValue]
         newUserDataDict.write(toFile: userDataPath, atomically:true)
         print("data submitted: new username \(username.stringValue)")
+        getDataJson(username: username.stringValue)
+    }
+    
+    func getDataJson (username: String) {
+        HTTP.GET("https://github.com/\(username)") { response in
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+                return
+            }
+            let mainPath = NSHomeDirectory() + "/Documents"
+            let url = NSURL(fileURLWithPath: "\(mainPath)/data.json")
+            let data = NSMutableData()
+            data.append(NSData(data: response.description.data(using: String.Encoding.utf8, allowLossyConversion: true)!) as Data)
+            data.write(toFile: url.path!, atomically: true)
+            print("data.json saved. current user: \(username)")
+        }
     }
     
     @IBAction func submitClicked(_ sender: AnyObject) {
