@@ -16,8 +16,6 @@ class MainController: NSObject {
     
     var eventMonitor: EventMonitor?
     
-    var mainButton: NSButton?
-    
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     override func awakeFromNib() {
@@ -32,9 +30,9 @@ class MainController: NSObject {
         Utils.refreshViewFiles()
         popover.contentViewController = mainIndicator
         statusItem.highlightMode = true
-        statusItem.target = self
-        statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
-        statusItem.action = #selector(MainController.togglePopover(sender:))
+        statusItem.button?.target = self
+        statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+        statusItem.button?.action = #selector(MainController.togglePopover(sender:))
     }
     
     func controllerEventMonitor () {
