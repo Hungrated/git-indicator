@@ -28,7 +28,6 @@ class MainController: NSObject {
     // controller func
     
     func controllerInit() {
-        print("controllerInit")
         mainIndicator = Indicator(nibName: NSNib.Name(rawValue: "Indicator"), bundle: nil)
         Utils.refreshViewFiles()
         popover.contentViewController = mainIndicator
@@ -39,7 +38,6 @@ class MainController: NSObject {
     }
     
     func controllerEventMonitor () {
-        print("controllerEventMonitor")
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
             if self.popover.isShown {
                 self.closePopover(sender: event)
