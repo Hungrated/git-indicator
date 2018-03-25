@@ -14,6 +14,7 @@ class Indicator: NSViewController {
     
     @IBOutlet weak var mainView: WebView!
     @IBOutlet weak var refresh: NSButton!
+    @IBOutlet weak var homepage: NSButton!
     @IBOutlet weak var preferences: NSButton!
     @IBOutlet weak var quit: NSButton!
     

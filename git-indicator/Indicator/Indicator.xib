@@ -47,10 +47,21 @@
                         <action selector="reload:" target="43k-QN-5Gd" id="ebJ-Qw-f63"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-8t-cFZ">
-                    <rect key="frame" x="38" y="1" width="38" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oDa-f1-lZx">
+                    <rect key="frame" x="37" y="1" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="PreferenceIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="PJL-tZ-KII">
+                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="GithubIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="YoX-Ai-7sz">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="homepageClicked:" target="Adx-C1-3dU" id="2Vg-Hz-Qvu"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-8t-cFZ">
+                    <rect key="frame" x="70" y="1" width="38" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="PreferenceIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="PJL-tZ-KII">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                         <connections>
@@ -58,21 +69,10 @@
                         </connections>
                     </buttonCell>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-Rk-gNd">
-                    <rect key="frame" x="165" y="1" width="150" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Github Homepage" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="lqj-HD-ZAZ">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="homepageClicked:" target="Adx-C1-3dU" id="ODm-Fr-gI1"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ove-O3-iXn">
                     <rect key="frame" x="437" y="1" width="40" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="QuitIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="23n-TF-KeZ">
+                    <buttonCell key="cell" type="push" bezelStyle="rounded" image="QuitIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="23n-TF-KeZ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -85,6 +85,7 @@
         </customView>
         <customObject id="Adx-C1-3dU" customClass="Indicator" customModule="git_indicator" customModuleProvider="target">
             <connections>
+                <outlet property="homepage" destination="oDa-f1-lZx" id="bYi-Nk-qp5"/>
                 <outlet property="mainView" destination="43k-QN-5Gd" id="1NB-1W-PfV"/>
                 <outlet property="preferences" destination="x1O-8t-cFZ" id="nad-NJ-NWb"/>
                 <outlet property="quit" destination="ove-O3-iXn" id="Wx9-gy-RBb"/>
@@ -92,6 +93,7 @@
         </customObject>
     </objects>
     <resources>
+        <image name="GithubIcon" width="64" height="64"/>
         <image name="PreferenceIcon" width="64" height="64"/>
         <image name="QuitIcon" width="64" height="64"/>
         <image name="RefreshIcon" width="64" height="64"/>
