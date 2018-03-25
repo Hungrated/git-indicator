@@ -24,6 +24,9 @@ class Preferences: NSWindowController {
     
     @IBAction func submitClicked(_ sender: AnyObject) {
         Utils.setUsername(username: username.stringValue)
+        if username.stringValue == "" {
+            username.stringValue = Utils.getUsername()
+        }
         self.close()
     }
 }

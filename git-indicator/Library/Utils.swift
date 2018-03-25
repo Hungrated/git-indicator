@@ -65,9 +65,13 @@ struct Utils {
     }
     
     static func setUsername (username: String) {
-        let newUserDataDict: NSDictionary = ["username": username]
+        var _username = username
+        if _username == "" {
+            _username = "octocat"
+        }
+        let newUserDataDict: NSDictionary = ["username": _username]
         newUserDataDict.write(toFile: "\(Utils.FILE_DIR)/userdata.plist", atomically: true)
-        print("data submitted: new user: \(username)")
+        print("data submitted. new user: \(_username)")
         Utils.getDataJson()
     }
     
