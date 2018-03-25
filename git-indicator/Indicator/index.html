@@ -63,22 +63,13 @@
         }
 
         .g-info .m-avatar img {
-            margin: -1px -1px 0 0;
-            width: 105%;
+            width: 100%;
         }
 
         .g-info .m-username, .g-info .m-count {
             margin: 2px 0 3px 0;
             font-size: 15px;
             line-height: 22px;
-        }
-
-        .g-info .m-username {
-
-        }
-
-        .g-info .m-count {
-
         }
 
         .g-info .m-count .m-color {
@@ -102,7 +93,7 @@
         <p class="m-username">
             <strong class="J_username">&lt;&nbsp;User&nbsp;&gt;</strong>
         </p>
-        <p class="m-count">Github Contributions today:
+        <p class="m-count">GitHub contributions today:
             <span class="m-color J_color"></span>
             <strong class="J_count">0</strong> commit(s).</p>
     </div>
@@ -112,44 +103,74 @@
     var refreshCount = 0
     var dataTemp = ''
 
-    $.get('./data.json', function (data) {
-        dataTemp = data
-        handleData(data)
-    })
-
-    var r = setInterval('refreshData()', 1500)
+    function fetchData() {
+        $.get('./data.json', function (data) {
+            console.log('fetch: 1')
+            dataTemp = data
+            handleData(data)
+        })
+    }
 
     function refreshData() {
         $.get('./data.json', function (data) {
-            if (dataChanged(dataTemp, data) || refreshCount > 3) {
+            if (dataChanged(dataTemp, data) || refreshCount >= 3) {
                 handleData(data)
                 r = window.clearInterval(r)
             }
             refreshCount = refreshCount + 1
-            dataTemp = data
-            console.log('refresh: ' + refreshCount)
+            console.log('refresh: ' + (refreshCount + 1))
         })
     }
 
     function dataChanged(_temp, _new) {
-        var _username = _temp.match(/https:\/\/github.com\/(.*)\n/)[1]
-        var _commitCountToday = _temp.match(/fill=(.*)\/>/g).slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
-        var username = _new.match(/https:\/\/github.com\/(.*)\n/)[1]
-        var commitCountToday = _new.match(/fill=(.*)\/>/g).slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
+        if (_temp === '' && _new !== '') {
+            return true
+        }
+        var _usernameRaw = _temp.match(/https:\/\/github.com\/(.*)\n/)
+        var _commitCountTodayRaw = _temp.match(/fill=(.*)\/>/g)
+        var usernameRaw = _new.match(/https:\/\/github.com\/(.*)\n/)
+        var commitCountTodayRaw = _new.match(/fill=(.*)\/>/g)
+
+        if (!_usernameRaw || !_commitCountTodayRaw || !usernameRaw || !commitCountTodayRaw) {
+            console.log('data error')
+            r = window.clearInterval(r)
+            return
+        }
+
+        var _username = _usernameRaw[1]
+        var _commitCountToday = _commitCountTodayRaw.slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
+        var username = usernameRaw[1]
+        var commitCountToday = commitCountTodayRaw.slice(-1)[0].match(/"[0-9]*"/)[0].replace(/"/g, '')
+
         return !(username === _username && commitCountToday === _commitCountToday)
     }
 
     function handleData(data) {
-        var commitArray = data.match(/fill=(.*)\/>/g).slice(-180)
-        var username = data.match(/https:\/\/github.com\/(.*)\n/)[1]
-        var avatar = data.match(/https:\/\/avatars2.githubusercontent.com\/u\/[0-9]*/)[0] + '?s=50'
-        var rawToday = commitArray[179]
-        var today = {
-            count: rawToday.match(/"[0-9]*"/)[0].replace(/"/g, ''),
-            color: rawToday.match(/#([0-9a-fA-F]*)/)[0]
+        var commitArrayRaw = data.match(/fill=(.*)\/>/g)
+        var usernameRaw = data.match(/https:\/\/github.com\/(.*)\n/)
+        var avatarRaw = data.match(/https:\/\/avatars[0-9]\.githubusercontent\.com\/u\/[0-9]*/)
+
+        if (!commitArrayRaw || !usernameRaw || !avatarRaw) {
+            console.log('data error')
+            r = window.clearInterval(r)
+            return
         }
+
+        var commitArray = commitArrayRaw.slice(-180)
+        var username = usernameRaw[1]
+        var avatar = avatarRaw[0] + '?s=80'
+
+        var todayRaw = commitArray[179]
+        var today = {
+            count: todayRaw.match(/"[0-9]*"/)[0].replace(/"/g, ''),
+            color: todayRaw.match(/#([0-9a-fA-F]*)/)[0]
+        }
+
+        if (refreshCount === 0) {
+            $('.J_avatar').html('<img src="' + avatar + '">')
+        }
+
         $('.J_username').html(username)
-        $('.J_avatar').html('<img src="' + avatar + '">')
         $('.J_color').css('background', today.color)
         $('.J_count').html(today.count)
         var chartData = []
@@ -172,14 +193,7 @@
                     type: 'piecewise',
                     show: false,
                     min: 0,
-                    max: max,
-                    pieces: [
-                        {value: 0, color: '#ebedf0'},
-                        {min: 0, max: levelRange, color: '#c6e48b'},
-                        {min: levelRange + 1, max: levelRange * 2, color: '#7bc96f'},
-                        {min: levelRange * 2 + 1, max: levelRange * 3, color: '#239a3b'},
-                        {min: levelRange * 3 + 1, max: max, color: '#196127'}
-                    ]
+                    max: max
                 }
             ],
             calendar: {
@@ -197,7 +211,7 @@
                     show: false
                 },
                 monthLabel: {
-                    formatter: '\'{yy}-{MM}',
+                    formatter: '\'{yy}.{MM}',
                     color: '#ebedf0',
                     fontWeight: 'lighter'
                 },
@@ -211,8 +225,26 @@
                 data: chartData
             }
         }
+        if (max <= 4) {
+            option.visualMap[0].pieces = [
+                {value: 0, color: '#ebedf0'},
+                {min: 1, max: max, color: '#196127'}
+            ]
+        } else {
+            option.visualMap[0].pieces = [
+                {value: 0, color: '#ebedf0'},
+                {min: 0, max: levelRange, color: '#c6e48b'},
+                {min: levelRange + 1, max: levelRange * 2, color: '#7bc96f'},
+                {min: levelRange * 2 + 1, max: levelRange * 3, color: '#239a3b'},
+                {min: levelRange * 3 + 1, max: max, color: '#196127'}
+            ]
+        }
         myChart.setOption(option)
     }
+
+    var t = setTimeout('fetchData()', 0)
+    var r = setInterval('refreshData()', 600)
+
 </script>
 </body>
 </html>
