@@ -20,6 +20,10 @@
 		445784B72064E5DD00AB55D4 /* userdata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 445784B62064E5DD00AB55D4 /* userdata.plist */; };
 		4474A23620615ED700E17225 /* SwiftHTTP.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4480E7BB206697E6001005F8 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480E7BA206697E6001005F8 /* MainController.swift */; };
+		44814CB4206B5E790022C51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44814CB3206B5E790022C51F /* AppDelegate.swift */; };
+		44814CB6206B5E790022C51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44814CB5206B5E790022C51F /* Assets.xcassets */; };
+		44814CB9206B5E790022C51F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44814CB7206B5E790022C51F /* MainMenu.xib */; };
+		44814CC2206B5F400022C51F /* git-indicator-helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44814CB1206B5E790022C51F /* git-indicator-helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AB888F205FDB4C005E06D1 /* SwiftHTTP.framework */; };
 		44AB8896205FDCBF005E06D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B5D4FE205E816F00CA32F0 /* WebKit.framework */; };
 		44D6DD1F2066B411008A7994 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6DD1D2066B411008A7994 /* Utils.swift */; };
@@ -56,6 +60,16 @@
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44814CC1206B5F2A0022C51F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				44814CC2206B5F400022C51F /* git-indicator-helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +87,13 @@
 		445784B12064D20900AB55D4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		445784B62064E5DD00AB55D4 /* userdata.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = userdata.plist; sourceTree = "<group>"; };
 		4480E7BA206697E6001005F8 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		44814CB1206B5E790022C51F /* git-indicator-helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "git-indicator-helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44814CB3206B5E790022C51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		44814CB5206B5E790022C51F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		44814CB8206B5E790022C51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		44814CBA206B5E790022C51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44814CBB206B5E790022C51F /* git_indicator_helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = git_indicator_helper.entitlements; sourceTree = "<group>"; };
+		44814CC3206B5F820022C51F /* git-indicator-helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "git-indicator-helper.entitlements"; sourceTree = "<group>"; };
 		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44D6DD1D2066B411008A7994 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -88,6 +109,13 @@
 			files = (
 				44AB8896205FDCBF005E06D1 /* WebKit.framework in Frameworks */,
 				44AB8892205FDB6F005E06D1 /* SwiftHTTP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44814CAE206B5E790022C51F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +148,7 @@
 			children = (
 				44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */,
 				443C4885204A9D7D004290A0 /* git-indicator */,
+				44814CB2206B5E790022C51F /* git-indicator-helper */,
 				443C4884204A9D7D004290A0 /* Products */,
 				443C4897204ABA82004290A0 /* README.md */,
 				443C4894204AA245004290A0 /* .gitignore */,
@@ -131,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				443C4883204A9D7D004290A0 /* git-indicator.app */,
+				44814CB1206B5E790022C51F /* git-indicator-helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +179,19 @@
 				44F13FD620625C7500158704 /* git-indicator.entitlements */,
 			);
 			path = "git-indicator";
+			sourceTree = "<group>";
+		};
+		44814CB2206B5E790022C51F /* git-indicator-helper */ = {
+			isa = PBXGroup;
+			children = (
+				44814CC3206B5F820022C51F /* git-indicator-helper.entitlements */,
+				44814CB3206B5E790022C51F /* AppDelegate.swift */,
+				44814CB5206B5E790022C51F /* Assets.xcassets */,
+				44814CB7206B5E790022C51F /* MainMenu.xib */,
+				44814CBA206B5E790022C51F /* Info.plist */,
+				44814CBB206B5E790022C51F /* git_indicator_helper.entitlements */,
+			);
+			path = "git-indicator-helper";
 			sourceTree = "<group>";
 		};
 		44AB888A205FDB4C005E06D1 /* Products */ = {
@@ -188,6 +231,7 @@
 				443C4880204A9D7D004290A0 /* Frameworks */,
 				443C4881204A9D7D004290A0 /* Resources */,
 				4474A23320615EB100E17225 /* Copy Frameworks */,
+				44814CC1206B5F2A0022C51F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -196,6 +240,23 @@
 			name = "git-indicator";
 			productName = "git-indicator";
 			productReference = 443C4883204A9D7D004290A0 /* git-indicator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		44814CB0206B5E790022C51F /* git-indicator-helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44814CC0206B5E790022C51F /* Build configuration list for PBXNativeTarget "git-indicator-helper" */;
+			buildPhases = (
+				44814CAD206B5E790022C51F /* Sources */,
+				44814CAE206B5E790022C51F /* Frameworks */,
+				44814CAF206B5E790022C51F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "git-indicator-helper";
+			productName = "git-indicator-helper";
+			productReference = 44814CB1206B5E790022C51F /* git-indicator-helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -216,6 +277,10 @@
 								enabled = 1;
 							};
 						};
+					};
+					44814CB0206B5E790022C51F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -239,6 +304,7 @@
 			projectRoot = "";
 			targets = (
 				443C4882204A9D7D004290A0 /* git-indicator */,
+				44814CB0206B5E790022C51F /* git-indicator-helper */,
 			);
 		};
 /* End PBXProject section */
@@ -277,6 +343,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44814CAF206B5E790022C51F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44814CB6206B5E790022C51F /* Assets.xcassets in Resources */,
+				44814CB9206B5E790022C51F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -293,6 +368,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44814CAD206B5E790022C51F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44814CB4206B5E790022C51F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -302,6 +385,14 @@
 				443C488B204A9D7D004290A0 /* Base */,
 			);
 			name = Main.xib;
+			sourceTree = "<group>";
+		};
+		44814CB7206B5E790022C51F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44814CB8206B5E790022C51F /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -443,6 +534,42 @@
 			};
 			name = Release;
 		};
+		44814CBC206B5E790022C51F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "git-indicator-helper/git-indicator-helper.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D5TKE7S6QR;
+				INFOPLIST_FILE = "git-indicator-helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hduhungrated.git-indicator-helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		44814CBD206B5E790022C51F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "git-indicator-helper/git-indicator-helper.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D5TKE7S6QR;
+				INFOPLIST_FILE = "git-indicator-helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hduhungrated.git-indicator-helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -460,6 +587,15 @@
 			buildConfigurations = (
 				443C4892204A9D7D004290A0 /* Debug */,
 				443C4893204A9D7D004290A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44814CC0206B5E790022C51F /* Build configuration list for PBXNativeTarget "git-indicator-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44814CBC206B5E790022C51F /* Debug */,
+				44814CBD206B5E790022C51F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
