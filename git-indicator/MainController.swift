@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 class MainController: NSObject {
     
@@ -21,6 +22,7 @@ class MainController: NSObject {
     override func awakeFromNib() {
         controllerInit()
         controllerEventMonitor()
+        startupAppWhenLogin(startup: false)
     }
     
     // controller func
@@ -42,6 +44,20 @@ class MainController: NSObject {
             }
         }
         eventMonitor?.start()
+    }
+    
+    func startupAppWhenLogin(startup: Bool) {
+        let launcherAppIdentifier = "com.hduhungrated.git-indicator-helper"
+        SMLoginItemSetEnabled(launcherAppIdentifier as CFString, startup)
+        var startedAtLogin = false
+        for app in NSWorkspace.shared.runningApplications {
+            if app.bundleIdentifier == launcherAppIdentifier {
+                startedAtLogin = true
+            }
+        }
+        if startedAtLogin {
+            DistributedNotificationCenter.default.post(name: NSNotification.Name(rawValue: "killhelper"), object: Bundle.main.bundleIdentifier!)
+        }
     }
     
     // popover func
