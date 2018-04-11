@@ -22,7 +22,7 @@ class MainController: NSObject {
     override func awakeFromNib() {
         controllerInit()
         controllerEventMonitor()
-        startupAppWhenLogin(startup: false)
+        startupAppWhenLogin(startup: true)
     }
     
     // controller func

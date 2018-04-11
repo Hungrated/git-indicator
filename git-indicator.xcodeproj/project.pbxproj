@@ -92,7 +92,6 @@
 		44814CB5206B5E790022C51F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44814CB8206B5E790022C51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		44814CBA206B5E790022C51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44814CBB206B5E790022C51F /* git_indicator_helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = git_indicator_helper.entitlements; sourceTree = "<group>"; };
 		44814CC3206B5F820022C51F /* git-indicator-helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "git-indicator-helper.entitlements"; sourceTree = "<group>"; };
 		44AB8889205FDB4C005E06D1 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "git-indicator/SwiftHTTP/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		44B5D4FE205E816F00CA32F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -189,7 +188,6 @@
 				44814CB5206B5E790022C51F /* Assets.xcassets */,
 				44814CB7206B5E790022C51F /* MainMenu.xib */,
 				44814CBA206B5E790022C51F /* Info.plist */,
-				44814CBB206B5E790022C51F /* git_indicator_helper.entitlements */,
 			);
 			path = "git-indicator-helper";
 			sourceTree = "<group>";
@@ -281,6 +279,11 @@
 					44814CB0206B5E790022C51F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
